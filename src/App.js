@@ -13,7 +13,11 @@ const App = () => {
 	return (
 		<div className={classes.App}>
 			<Container className={classes.container}>
-
+				<header className={classes.header}>
+					<Menu>
+						<Menu.Item>Social Network</Menu.Item>
+					</Menu>
+				</header>
 				<div className={classes.mainContent}>
 
 
