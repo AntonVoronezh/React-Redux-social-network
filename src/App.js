@@ -19,7 +19,11 @@ const App = () => {
 					</Menu>
 				</header>
 				<div className={classes.mainContent}>
-
+					<aside className={classes.aside}>
+						<Segment className={classes.segment}>
+							<LeftMenu />
+						</Segment>
+					</aside>
 
 				</div>
 
