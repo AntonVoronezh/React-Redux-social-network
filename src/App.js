@@ -37,7 +37,11 @@ const App = () => {
 						</Segment>
 					</main>
 				</div>
-
+				<footer>
+					<Menu>
+						<Menu.Item>2019</Menu.Item>
+					</Menu>
+				</footer>
 			</Container>
 		</div>
 	);
