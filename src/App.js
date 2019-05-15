@@ -24,7 +24,11 @@ const App = () => {
 							<LeftMenu />
 						</Segment>
 					</aside>
+					<main className={classes.main}>
+						<Segment className={classes.segment}>
 
+						</Segment>
+					</main>
 				</div>
 
 			</Container>
