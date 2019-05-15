@@ -1,0 +1,23 @@
+.App {}
+
+.container {}
+
+.header {
+    margin-bottom: 5px;
+}
+
+.mainContent {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.main {
+    width: 70%;
+    margin-left: 5px;
+}
+
+.aside {
+    width: 30%;
+}
+
+.segment {}
