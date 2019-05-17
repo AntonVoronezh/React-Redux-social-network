@@ -20,4 +20,10 @@ const usersFailureAC = error => ({ type: USERS_FAILURE, payload: error });
 const usersRequestAC = () => ({ type: USERS_REQUEST });
 const usersSuccessAC = data => ({ type: USERS_SUCCESS, payload: data });
 
+const fetchUsers = (page, count) => async dispatch => {
+	dispatch(usersRequestAC());
 
+
+};
+
+export default fetchUsers;
