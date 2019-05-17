@@ -11,6 +11,18 @@ export const changeRememberAC = () => ({ type: CHANGE_REMEMBER });
 
 export const validationFormAC = () => ({ type: VALIDATION_FORM });
 
+export const login = () => async dispatch => {
+    dispatch(validationFormAC());
+    
+	axios
+		.post('/auth/login', {
+			email: '',
+			password: '',
+			rememberMe: '',
+		})
+		.then(res => {
+			debugger;
+		});
 
 	// dispatch(usersRequestAC());
 
