@@ -6,6 +6,7 @@ import Main from './containers/pages/Main';
 import Profile from './containers/pages/Profile';
 import Dialogs from './containers/pages/Dialogs';
 import Users from './containers/pages/Users';
+import Login from './containers/pages/Login';
 import NotFound from './components/pages/NotFound/NotFound';
 import LeftMenu from './components/elements/LeftMenu/LeftMenu';
 
@@ -32,6 +33,7 @@ const App = () => {
 								<Route path="/dialogs" component={Dialogs} />
 								<Route path="/dialogs/:user" component={Dialogs} />
 								<Route path="/users" component={Users} />
+								<Route path="/login" component={Login} />
 								<Route component={NotFound} />
 							</Switch>
 						</Segment>
