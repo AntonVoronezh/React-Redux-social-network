@@ -16,5 +16,8 @@ export const unfollowAC = id => ({ type: UNFOLLOW, payload: id });
 const getTotalCountAC = num => ({ type: GET_TOTAL_COUNT, payload: num });
 export const setPageNumberAC = num => ({ type: SET_PAGE_NUMBER, payload: num });
 
+const usersFailureAC = error => ({ type: USERS_FAILURE, payload: error });
+const usersRequestAC = () => ({ type: USERS_REQUEST });
+const usersSuccessAC = data => ({ type: USERS_SUCCESS, payload: data });
 
 
