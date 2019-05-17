@@ -23,7 +23,13 @@ const usersSuccessAC = data => ({ type: USERS_SUCCESS, payload: data });
 const fetchUsers = (page, count) => async dispatch => {
 	dispatch(usersRequestAC());
 
-
+	try {
+		const responce = await getUsers(page, count);
+		dispatch(usersSuccessAC(responce.data.items));
+		dispatch(getTotalCountAC(responce.data.totalCount));
+	} catch (err) {
+		dispatch(usersFailureAC(err));
+	}
 };
 
 export default fetchUsers;
