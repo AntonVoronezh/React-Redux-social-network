@@ -23,6 +23,11 @@ const Users = ({
 		paginationHandlerCB(number);
 	};
 
+	!error
+		? (users = data.map(u => {
+				return <User key={u.id} {...u} followCB={followCB} unfollowCB={unfollowCB} />;
+		  }))
+		: (users = `Ошибка "${error.message}". Попробуйте еще раз.`);
 
 
 
