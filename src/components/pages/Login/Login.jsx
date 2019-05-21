@@ -31,7 +31,13 @@ const Login = ({
 		<Segment>
 			<Form onSubmit={submitFormHandler}>
 				<Form.Group widths="equal">
-
+					<Form.Input
+						fluid
+						label="Username"
+						placeholder="username"
+						onChange={usernameInputHandler}
+						value={username}
+					/>
 
 				</Form.Group>
 
