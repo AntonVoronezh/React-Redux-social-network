@@ -29,6 +29,13 @@ const Users = ({
 		  }))
 		: (users = `Ошибка "${error.message}". Попробуйте еще раз.`);
 
+	isLoading
+		? (result = (
+				<Loader size="large" active>
+					Loading
+				</Loader>
+		  ))
+		: (result = users);
 
 
 
