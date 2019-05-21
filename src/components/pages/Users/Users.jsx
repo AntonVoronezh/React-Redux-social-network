@@ -60,3 +60,13 @@ const Users = ({
 };
 
 export default Users;
+
+Users.propTypes = {
+	followCB: PropTypes.func.isRequired,
+	unfollowCB: PropTypes.func.isRequired,
+	isLoading: PropTypes.bool.isRequired,
+	users: PropTypes.array.isRequired,
+	error: PropTypes.string,
+	paginationCount: PropTypes.number.isRequired,
+	setPageNumberCB: PropTypes.func.isRequired,
+};
