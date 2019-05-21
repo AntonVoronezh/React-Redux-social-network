@@ -64,3 +64,12 @@ const Login = ({
 
 export default Login;
 
+Login.propTypes = {
+	addNewUsernameTextCB: PropTypes.func.isRequired,
+	addNewPasswordTextCB: PropTypes.func.isRequired,
+	username: PropTypes.string.isRequired,
+	password: PropTypes.string.isRequired,
+	changeRememberCB: PropTypes.func.isRequired,
+	remember: PropTypes.bool.isRequired,
+	validationFormCB: PropTypes.func.isRequired,
+};
