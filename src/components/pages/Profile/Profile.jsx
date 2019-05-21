@@ -25,4 +25,11 @@ const Profile = ({ posts, newMessageText, description, image, addPostCB, addNewM
 
 export default Profile;
 
-
+Profile.propTypes = {
+	posts: PropTypes.array.isRequired,
+	newMessageText: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	image: PropTypes.string.isRequired,
+	addPostCB: PropTypes.func.isRequired,
+	addNewMessageCB: PropTypes.func.isRequired,
+};
