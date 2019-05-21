@@ -38,7 +38,13 @@ const Login = ({
 						onChange={usernameInputHandler}
 						value={username}
 					/>
-
+					<Form.Input
+						fluid
+						label="Password"
+						placeholder="password"
+						onChange={passwordInputHandler}
+						value={password}
+					/>
 				</Form.Group>
 
 
