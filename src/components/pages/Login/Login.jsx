@@ -15,7 +15,9 @@ const Login = ({
 	const usernameInputHandler = ({ nativeEvent: { data } }) => {
 		addNewUsernameTextCB(data);
 	};
-
+	const passwordInputHandler = ({ nativeEvent: { data } }) => {
+		addNewPasswordTextCB(data);
+	};
 
 
 
