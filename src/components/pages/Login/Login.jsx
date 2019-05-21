@@ -54,7 +54,9 @@ const Login = ({
 					control={toString(remember)}
 				/>
 				<br />
-	
+				<Button type="submit" disabled={!(!!username && !!password)}>
+					Submit
+				</Button>
 			</Form>
 		</Segment>
 	);
