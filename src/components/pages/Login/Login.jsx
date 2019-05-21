@@ -22,7 +22,10 @@ const Login = ({
 		changeRememberCB();
 	};
 
-
+	const submitFormHandler = () => {
+		// validationFormCB();
+		loginCB();
+	};
 
 	);
 };
