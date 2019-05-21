@@ -37,7 +37,19 @@ const Users = ({
 		  ))
 		: (result = users);
 
-
+	isLoading
+		? (pagination = null)
+		: (pagination = (
+				<Pagination
+					defaultActivePage={page}
+					totalPages={paginationCount}
+					onPageChange={data => paginationChangeHandler(data)}
+					firstItem={null}
+					lastItem={null}
+					prevItem={null}
+					nextItem={null}
+				/>
+		  ));
 
 	return (
 		<React.Fragment>
