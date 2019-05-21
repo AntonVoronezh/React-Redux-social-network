@@ -7,7 +7,19 @@ import Posts from '../../elements/Posts/Posts';
 
 const Profile = ({ posts, newMessageText, description, image, addPostCB, addNewMessageCB }) => {
 	return (
-
+		<React.Fragment>
+			<Segment>
+				<img src={image} alt={description} style={{ width: '100%' }} />
+				{description}
+			</Segment>
+			<Segment>
+				<Textarea newMessageText={newMessageText} addNewMessageCB={addNewMessageCB} />
+				<Button content="Добавить пост" callback={addPostCB}/>
+			</Segment>
+			<Segment>
+				<Posts posts={posts}/>
+			</Segment>
+		</React.Fragment>
 	);
 };
 
