@@ -47,7 +47,13 @@ const Login = ({
 					/>
 				</Form.Group>
 
-
+				<Checkbox
+					label="Запомнить меня"
+					onChange={checkboxInputHandler}
+					style={{ marginBottom: '10px' }}
+					control={toString(remember)}
+				/>
+				<br />
 	
 			</Form>
 		</Segment>
