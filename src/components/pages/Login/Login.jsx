@@ -18,6 +18,9 @@ const Login = ({
 	const passwordInputHandler = ({ nativeEvent: { data } }) => {
 		addNewPasswordTextCB(data);
 	};
+	const checkboxInputHandler = () => {
+		changeRememberCB();
+	};
 
 
 
