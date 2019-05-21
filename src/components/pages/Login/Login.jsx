@@ -27,6 +27,18 @@ const Login = ({
 		loginCB();
 	};
 
+	return (
+		<Segment>
+			<Form onSubmit={submitFormHandler}>
+				<Form.Group widths="equal">
+
+
+				</Form.Group>
+
+
+	
+			</Form>
+		</Segment>
 	);
 };
 
