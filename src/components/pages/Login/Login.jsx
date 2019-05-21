@@ -12,6 +12,9 @@ const Login = ({
 	validationFormCB,
 	loginCB
 }) => {
+	const usernameInputHandler = ({ nativeEvent: { data } }) => {
+		addNewUsernameTextCB(data);
+	};
 
 
 
