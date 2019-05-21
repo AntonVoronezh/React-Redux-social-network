@@ -16,6 +16,13 @@ const Users = ({
 }) => {
 	let users, result, pagination;
 
+	const paginationChangeHandler = ({ currentTarget }) => {
+		const number = Number(currentTarget.childNodes[0].data);
+
+		setPageNumberCB(number);
+		paginationHandlerCB(number);
+	};
+
 
 
 
