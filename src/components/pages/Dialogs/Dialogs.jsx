@@ -13,7 +13,10 @@ const Dialogs = props => {
 				<Segment className={classes.users}>
 					<DialogsList {...props} />
 				</Segment>
-
+				<Segment className={classes.messages}>
+					<Messages {...props} />
+					{props.location.pathname === '/dialogs' ? null : <UsersMessagesForm {...props} />}
+				</Segment>
 			</div>
 		</React.Fragment>
 	);
