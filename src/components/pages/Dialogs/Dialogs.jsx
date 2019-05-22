@@ -10,7 +10,9 @@ const Dialogs = props => {
 	return (
 		<React.Fragment>
 			<div className={classes.dialogs}>
-	
+				<Segment className={classes.users}>
+					<DialogsList {...props} />
+				</Segment>
 
 			</div>
 		</React.Fragment>
