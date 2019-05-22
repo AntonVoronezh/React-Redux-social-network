@@ -1,0 +1,16 @@
+.dialogs {
+    display: flex;
+    align-items: flex-start;
+    /* width: 100%; */
+
+}
+
+.users {
+    width: 150px;
+    margin: 0;
+}
+
+.messages {
+    flex: 1;
+    margin: 0;
+}
