@@ -24,3 +24,10 @@ const Dialogs = props => {
 
 export default Dialogs;
 
+Dialogs.propTypes = {
+	newDialogText: PropTypes.string.isRequired,
+	messages: PropTypes.object.isRequired,
+	dialogs: PropTypes.array.isRequired,
+	addDialogCB: PropTypes.func.isRequired,
+	addNewDialogTextCB: PropTypes.func.isRequired,
+};
