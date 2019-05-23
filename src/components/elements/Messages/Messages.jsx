@@ -8,6 +8,10 @@ const Messages = ({ location: { pathname }, messages }) => {
 
 	let list;
 
+	!isNaN(id) ? list = messages[id].map(m => {
+		return <Message key={m.id} {...m} />;
+	}) : list = 'Выберите с кем переписываться'
+
 
 };
 
