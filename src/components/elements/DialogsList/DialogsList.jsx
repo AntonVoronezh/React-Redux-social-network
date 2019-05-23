@@ -13,6 +13,13 @@ const Dialogs = ({ dialogs }) => {
 		);
 	});
 
+	return (
+		<React.Fragment>
+			<List divided relaxed>
+				{list}
+			</List>
+		</React.Fragment>
+	);
 };
 
 export default Dialogs;
