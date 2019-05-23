@@ -19,4 +19,6 @@ const LeftMenu = props => {
 
 export default LeftMenu;
 
-
+LeftMenu.propTypes = {
+	usernameText: PropTypes.string,
+};
