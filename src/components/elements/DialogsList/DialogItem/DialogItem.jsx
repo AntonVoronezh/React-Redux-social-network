@@ -16,3 +16,7 @@ const DialogItem = ({ id, name }) => {
 
 export default DialogItem;
 
+DialogItem.propTypes = {
+	name: PropTypes.string.isRequired,
+	id: PropTypes.number.isRequired,
+};
