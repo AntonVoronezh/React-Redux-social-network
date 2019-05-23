@@ -12,7 +12,13 @@ const Messages = ({ location: { pathname }, messages }) => {
 		return <Message key={m.id} {...m} />;
 	}) : list = 'Выберите с кем переписываться'
 
-
+	return (
+		<React.Fragment>
+			<List divided relaxed>
+				{list}
+			</List>
+		</React.Fragment>
+	);
 };
 
 export default Messages;
