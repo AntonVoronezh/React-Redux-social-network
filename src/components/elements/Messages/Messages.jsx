@@ -23,3 +23,7 @@ const Messages = ({ location: { pathname }, messages }) => {
 
 export default Messages;
 
+Messages.propTypes = {
+	messages: PropTypes.object.isRequired,
+	location: PropTypes.object.isRequired,
+};
