@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import User from '../../elements/User/User';
-import { Loader, Pagination, Icon } from 'semantic-ui-react';
+import { Loader, Pagination } from 'semantic-ui-react';
 
 const Users = ({
 	followCB,
