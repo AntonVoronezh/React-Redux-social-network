@@ -12,4 +12,6 @@ const Posts = ({ posts: data }) => {
 
 export default Posts;
 
-
+Posts.propTypes = {
+	posts: PropTypes.array.isRequired,
+};
