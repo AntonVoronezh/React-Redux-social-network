@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import url from './axiosInstance';
 
 const url = 'https://social-network.samuraijs.com/api/1.0';
 
@@ -17,4 +18,10 @@ export const getUsers = (page, count) => {
 	}
 
 	return axios.get(`${url}${api}${payload}`);
+};
+
+export const getProfile = id => {
+	const api = '/profile/';
+
+	return axios.get(`${url}${api}${id}`);
 };
