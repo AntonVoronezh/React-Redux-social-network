@@ -30,3 +30,11 @@ const Users = ({ followCB, unfollowCB, photos, name, followed, id, status }) => 
 
 export default Users;
 
+Users.propTypes = {
+	followCB: PropTypes.func.isRequired,
+	unfollowCB: PropTypes.func.isRequired,
+	photos: PropTypes.object.isRequired,
+	name: PropTypes.string.isRequired,
+	followed: PropTypes.bool.isRequired,
+	id: PropTypes.number.isRequired,
+};
