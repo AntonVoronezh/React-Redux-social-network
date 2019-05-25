@@ -6,7 +6,11 @@ const Textarea = ({ newMessageText, addNewMessageCB }) => {
 	const textareaHandler = ({ nativeEvent: { data } }) => {
 		addNewMessageCB(data);
 	};
-
+	return (
+		<React.Fragment>
+			<TextArea rows={3} value={newMessageText} onChange={textareaHandler} style={{ width: '100%' }} />
+		</React.Fragment>
+	);
 };
 
 export default Textarea;
