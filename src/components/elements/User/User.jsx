@@ -8,7 +8,17 @@ import Button from '../UI/Button/Button';
 
 const Users = ({ followCB, unfollowCB, photos, name, followed, id, status }) => {
 	return (
-
+		<React.Fragment>
+			<Segment.Group horizontal className={classes.user}>
+				<Segment className={classes.avatar}>
+		
+					<br />
+		
+				</Segment>
+				<Segment className={classes.contaent}>{name}</Segment>
+			</Segment.Group>
+		</React.Fragment>
+	);
 };
 
 export default Users;
