@@ -7,7 +7,10 @@ const UsersMessagesForm = ({ newDialogText, addDialogCB, addNewDialogTextCB, loc
     const id = Number(pathname.split('/')[2]);
     
     return (
-
+		<React.Fragment>
+			<Textarea newMessageText={newDialogText} addNewMessageCB={addNewDialogTextCB} />
+			<Button content="Добавить" callback={addDialogCB} id={id}/>
+		</React.Fragment>
 	);
 };
 
