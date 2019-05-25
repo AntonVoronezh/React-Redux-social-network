@@ -15,4 +15,7 @@ const Textarea = ({ newMessageText, addNewMessageCB }) => {
 
 export default Textarea;
 
-
+Textarea.propTypes = {
+	newMessageText: PropTypes.string.isRequired,
+	addNewMessageCB: PropTypes.func.isRequired,
+};
