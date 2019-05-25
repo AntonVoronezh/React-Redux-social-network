@@ -16,3 +16,9 @@ const UsersMessagesForm = ({ newDialogText, addDialogCB, addNewDialogTextCB, loc
 
 export default UsersMessagesForm;
 
+UsersMessagesForm.propTypes = {
+	newDialogText: PropTypes.string.isRequired,
+	addNewDialogTextCB: PropTypes.func.isRequired,
+    addDialogCB: PropTypes.func.isRequired,
+    location: PropTypes.object.isRequired,
+};
