@@ -16,7 +16,11 @@ const Users = ({ followCB, unfollowCB, photos, name, followed, id, status }) => 
 					</NavLink>
 
 					<br />
-		
+					{!followed ? (
+						<Button callback={followCB} content="Follow" id={id} />
+					) : (
+						<Button callback={unfollowCB} content="UnFollow" id={id} />
+					)}
 				</Segment>
 				<Segment className={classes.contaent}>{name}</Segment>
 			</Segment.Group>
