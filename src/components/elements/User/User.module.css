@@ -1,0 +1,14 @@
+.user {
+    border: none;
+    display: flex;
+    align-items: flex-start;
+}
+
+.avatar {
+    max-width: 150px;
+}
+
+.contaent {
+    flex: 1;
+    margin-left: 5px;
+}
