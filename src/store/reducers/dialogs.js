@@ -41,7 +41,13 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
+		case ADD_DIALOG: {
+			const newDialog = {
+				id: state.messages[action.payload].length + 1,
+				text: state.newDialogText,
+			};
 
+		}
 
 
 		default:
