@@ -29,7 +29,7 @@ const App = () => {
 						<Segment className={classes.segment}>
 							<Switch>
 								<Route exact path="/" component={Main} />
-								<Route path="/profile" component={Profile} />
+								<Route path="/profile/:id?" component={Profile} />
 								<Route path="/dialogs" component={Dialogs} />
 								<Route path="/dialogs/:user" component={Dialogs} />
 								<Route path="/users" component={Users} />
