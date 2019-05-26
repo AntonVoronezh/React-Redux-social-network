@@ -52,7 +52,15 @@ const reducer = (state = initialState, action) => {
 				newDialogText: '',
 			};
 		}
-
+		case ADD_NEW_DIALOG_TEXT: {
+			return {
+				...state,
+				newDialogText:
+					action.payload !== null
+						? state.newDialogText + action.payload
+						: state.newDialogText.substr(0, state.newDialogText.length - 1),
+			};
+		}
 
 		default:
 			return state;
