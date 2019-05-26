@@ -15,3 +15,7 @@ const ButtonMy = ({ content, callback, ...rest }) => {
 
 export default ButtonMy;
 
+ButtonMy.propTypes = {
+	content: PropTypes.string.isRequired,
+	callback: PropTypes.func.isRequired,
+};
