@@ -46,7 +46,11 @@ const reducer = (state = initialState, action) => {
 				id: state.messages[action.payload].length + 1,
 				text: state.newDialogText,
 			};
-
+			return {
+				...state,
+				messages: { ...state.messages, [action.payload]: [...state.messages[action.payload], newDialog] },
+				newDialogText: '',
+			};
 		}
 
 
