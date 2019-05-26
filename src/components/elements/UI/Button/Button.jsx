@@ -6,7 +6,11 @@ const ButtonMy = ({ content, callback, ...rest }) => {
 	const buttonHandler = () => {
 		callback(rest.id);
 	};
-
+	return (
+		<React.Fragment>
+			<Button content={content} onClick={buttonHandler} />
+		</React.Fragment>
+	);
 };
 
 export default ButtonMy;
