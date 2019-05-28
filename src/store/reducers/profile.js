@@ -26,6 +26,15 @@ const profile = (state = initialState, action) => {
 			};
 		}
 
+		case ADD_NEW_MESSAGE_TEXT: {
+			return {
+				...state,
+				newMessageText:
+					action.payload !== null
+						? state.newMessageText + action.payload
+						: state.newMessageText.substr(0, state.newMessageText.length - 1),
+			};
+		}
 
 
 
