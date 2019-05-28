@@ -73,7 +73,16 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
-
+		case AUTH_FAILURE: {
+			return {
+				...state,
+				request: {
+					...state.request,
+					status: statuses.FAILURE,
+					errorMessage: action.payload
+				},
+			};
+		}
 
 		// case VALIDATION_FORM: {
 		//     let isValid = validationForm(state.username, state.password)
