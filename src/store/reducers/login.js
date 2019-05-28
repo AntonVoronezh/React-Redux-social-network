@@ -64,7 +64,15 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
-
+		case AUTH_SUCCESS: {
+			return {
+				...state,
+				request: {
+					...state.request,
+					status: statuses.SUCCESS,
+				},
+			};
+		}
 
 
 		// case VALIDATION_FORM: {
