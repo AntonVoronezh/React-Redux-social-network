@@ -1,10 +1,7 @@
-import axios from 'axios';
-// import url from './axiosInstance';
-
-const url = 'https://social-network.samuraijs.com/api/1.0';
+import axios from './axiosInstance';
 
 export const getUsers = (page, count) => {
-	const api = '/users';
+	const endPoint = '/users';
 	let payload = '';
 
 	if (page && count) {
@@ -17,11 +14,19 @@ export const getUsers = (page, count) => {
 		payload = '';
 	}
 
-	return axios.get(`${url}${api}${payload}`);
+	return axios.get(`${endPoint}${payload}`);
 };
 
 export const getProfile = id => {
-	const api = '/profile/';
+	const endPoint = '/profile';
 
-	return axios.get(`${url}${api}${id}`);
+	return axios.get(`${endPoint}/${id}`);
+};
+
+export const tryLogin = (email, password, rememberMe) => {
+	// const endPoint = '/auth/login';
+	// const payload = {email, password, rememberMe};
+
+	// return axios.post(`${endPoint},` + payload);
+	return axios.post('/auth/login', {email, password, rememberMe});
 };
