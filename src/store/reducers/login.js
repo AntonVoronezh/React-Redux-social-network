@@ -54,7 +54,16 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
-
+		case AUTH_REQUEST: {
+			return {
+				...state,
+				request: {
+					...state.request,
+					status: statuses.REQUEST,
+					errorMessage: null
+				},
+			};
+		}
 
 
 
