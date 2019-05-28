@@ -45,6 +45,15 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
+		case CHANGE_REMEMBER: {
+			return {
+				...state,
+				form: {
+					...state.form,
+					remember: !state.form.remember,
+				},
+			};
+		}
 
 
 
