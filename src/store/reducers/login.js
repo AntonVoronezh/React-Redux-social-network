@@ -33,6 +33,18 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
+		case ADD_NEW_PASSWORD_TEXT: {
+			return {
+				...state,
+				form: {
+					...state.form,
+					password:
+						action.payload !== null
+							? state.form.password + action.payload
+							: state.form.password.substr(0, state.form.password.length - 1),
+				},
+			};
+		}
 
 
 
