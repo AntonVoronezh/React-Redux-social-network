@@ -21,7 +21,18 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-
+		case ADD_NEW_USERNAME_TEXT: {
+			return {
+				...state,
+				form: {
+					...state.form,
+					username:
+						action.payload !== null
+							? state.form.username + action.payload
+							: state.form.username.substr(0, state.form.username.length - 1),
+				},
+			};
+		}
 
 
 
