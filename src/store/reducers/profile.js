@@ -42,6 +42,12 @@ const profile = (state = initialState, action) => {
 				isLoading: true,
 			};
 
+		case PROFILE_SUCCESS:
+			return {
+				...state,
+				profile: { ...action.payload },
+				isLoading: false,
+			};
 
 
 
