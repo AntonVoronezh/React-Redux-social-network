@@ -36,6 +36,11 @@ const profile = (state = initialState, action) => {
 			};
 		}
 
+		case PROFILE_REQUEST:
+			return {
+				...state,
+				isLoading: true,
+			};
 
 
 
