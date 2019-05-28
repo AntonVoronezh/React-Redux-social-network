@@ -49,7 +49,12 @@ const profile = (state = initialState, action) => {
 				isLoading: false,
 			};
 
-
+		case PROFILE_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+				error: action.payload,
+			};
 
 		default:
 			return state;
