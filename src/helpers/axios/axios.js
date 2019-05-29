@@ -30,3 +30,16 @@ export const tryLogin = (email, password, rememberMe) => {
 	// return axios.post(`${endPoint},` + payload);
 	return axios.post('/auth/login', {email, password, rememberMe});
 };
+
+export const getMe = () => {
+	const endPoint = '/auth/me';
+
+	return axios.get(`${endPoint}`);
+};
+
+export const logOut = () => {
+	const endPoint = '/auth/logout';
+
+	return axios.post(`${endPoint}`);
+};
+
