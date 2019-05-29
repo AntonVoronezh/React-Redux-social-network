@@ -33,7 +33,19 @@ const reducer = (state = initialState, action) => {
 				}),
 			};
 
-
+		case UNFOLLOW:
+			return {
+				...state,
+				users: state.users.map(u => {
+					if (u.id === action.payload) {
+						return {
+							...u,
+							followed: false,
+						};
+					}
+					return u;
+				}),
+			};
 
 
 
