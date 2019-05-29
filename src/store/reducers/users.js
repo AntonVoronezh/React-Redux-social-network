@@ -67,7 +67,11 @@ const reducer = (state = initialState, action) => {
 				error: action.payload,
 			};
 
-
+		case SET_PAGE_NUMBER:
+			return {
+				...state,
+				page: action.payload,
+			};
 
 
 		default:
