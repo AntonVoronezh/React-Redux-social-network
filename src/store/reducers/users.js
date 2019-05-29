@@ -60,7 +60,12 @@ const reducer = (state = initialState, action) => {
 				isLoading: false,
 			};
 
-
+		case USERS_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+				error: action.payload,
+			};
 
 
 
