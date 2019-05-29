@@ -53,7 +53,12 @@ const reducer = (state = initialState, action) => {
 				isLoading: true,
 			};
 
-
+		case USERS_SUCCESS:
+			return {
+				...state,
+				users: [...action.payload],
+				isLoading: false,
+			};
 
 
 
