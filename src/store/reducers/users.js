@@ -47,6 +47,11 @@ const reducer = (state = initialState, action) => {
 				}),
 			};
 
+		case USERS_REQUEST:
+			return {
+				...state,
+				isLoading: true,
+			};
 
 
 
