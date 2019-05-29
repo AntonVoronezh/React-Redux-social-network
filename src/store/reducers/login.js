@@ -3,7 +3,7 @@ import statuses from '../../helpers/axios/constants';
 // import { setInStorage, getInStorage } from '../../helpers/localStorage/localStorage';
 
 import { ADD_NEW_PASSWORD_TEXT, ADD_NEW_USERNAME_TEXT, CHANGE_REMEMBER } from '../actions/login';
-import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_FAILURE, AUTH_ERROR } from '../actions/login';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN_ERROR } from '../actions/login';
 
 const initialState = {
 	form: {
@@ -54,17 +54,17 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
-		case AUTH_REQUEST: {
+		case LOGIN_REQUEST: {
 			return {
 				...state,
 				request: {
 					...state.request,
 					status: statuses.REQUEST,
-					errorMessage: null
+					errorMessage: null,
 				},
 			};
 		}
-		case AUTH_SUCCESS: {
+		case LOGIN_SUCCESS: {
 			return {
 				...state,
 				request: {
@@ -73,23 +73,23 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
-		case AUTH_FAILURE: {
+		case LOGIN_FAILURE: {
 			return {
 				...state,
 				request: {
 					...state.request,
 					status: statuses.FAILURE,
-					errorMessage: action.payload
+					errorMessage: action.payload,
 				},
 			};
 		}
-		case AUTH_ERROR: {
+		case LOGIN_ERROR: {
 			return {
 				...state,
 				request: {
 					...state.request,
 					status: statuses.ERROR,
-					errorMessage: action.payload
+					errorMessage: action.payload,
 				},
 			};
 		}

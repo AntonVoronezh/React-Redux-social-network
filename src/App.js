@@ -9,6 +9,7 @@ import Users from './containers/pages/Users';
 import Login from './containers/pages/Login';
 import NotFound from './components/pages/NotFound/NotFound';
 import LeftMenu from './components/elements/LeftMenu/LeftMenu';
+import Header from './containers/elements/Header/Header';
 
 const App = () => {
 	return (
@@ -17,6 +18,9 @@ const App = () => {
 				<header className={classes.header}>
 					<Menu>
 						<Menu.Item>Social Network</Menu.Item>
+						<Menu.Item position="right">
+							<Header />
+						</Menu.Item>
 					</Menu>
 				</header>
 				<div className={classes.mainContent}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Form, Segment, Checkbox } from 'semantic-ui-react';
+import { Redirect } from 'react-router-dom';
 import statuses from '../../../helpers/axios/constants';
 
 const Login = ({
@@ -13,7 +14,8 @@ const Login = ({
 	// validationFormCB,
 	loginCB,
 	errorMessage,
-	status
+	status,
+	isAuth,
 }) => {
 	const usernameInputHandler = ({ nativeEvent: { data } }) => {
 		addNewUsernameTextCB(data);
@@ -29,6 +31,10 @@ const Login = ({
 		// validationFormCB();
 		loginCB(username, password, remember);
 	};
+
+	if (isAuth) {
+		return <Redirect to="/" />;
+	}
 
 	return (
 		<Segment>
@@ -78,5 +84,6 @@ Login.propTypes = {
 	loginCB: PropTypes.func.isRequired,
 	status: PropTypes.string.isRequired,
 	errorMessage: PropTypes.string,
+	isAuth: PropTypes.bool.isRequired,
 	// validationFormCB: PropTypes.func.isRequired,
 };
