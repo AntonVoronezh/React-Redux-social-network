@@ -73,6 +73,11 @@ const reducer = (state = initialState, action) => {
 				page: action.payload,
 			};
 
+		case GET_TOTAL_COUNT:
+			return {
+				...state,
+				totalCount: action.payload,
+			};
 
 		default:
 			return state;
