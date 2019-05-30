@@ -7,5 +7,11 @@ export const ME_REQUEST = 'ME_REQUEST';
 export const ME_SUCCESS = 'ME_SUCCESS';
 export const ME_FAILURE = 'ME_FAILURE';
 
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+
+export const setIsAuthAC = value => ({ type: SET_IS_AUTH, payload: value });
+
 
 
