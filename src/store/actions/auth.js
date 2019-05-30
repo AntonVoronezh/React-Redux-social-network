@@ -21,5 +21,9 @@ export const logoutRequestAC = () => ({ type: LOGOUT_REQUEST });
 export const logoutSuccessAC = () => ({ type: LOGOUT_SUCCESS });
 export const logoutFailureAC = error => ({ type: LOGOUT_FAILURE, payload: error });
 
+export const me = () => async dispatch => {
+	dispatch(meRequestAC());
 
+
+};
 
