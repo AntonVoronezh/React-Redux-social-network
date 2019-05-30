@@ -44,5 +44,7 @@ export const logout = () => async dispatch => {
 		if (responce.data.resultCode === 0) {
 			dispatch(logoutSuccessAC());
 		}
-	} 
+	} catch (err) {
+		dispatch(logoutFailureAC(err));
+	}
 };
