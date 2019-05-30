@@ -27,6 +27,13 @@ export default (state = initialState, action) => {
 				status: statuses.REQUEST,
 			};
 		}
+		case ME_FAILURE: {
+			return {
+				...state,
+				status: statuses.FAILURE,
+				errorMessage: action.payload,
+			};
+		}
 
 
 
