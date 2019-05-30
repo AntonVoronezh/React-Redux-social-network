@@ -24,6 +24,12 @@ export const logoutFailureAC = error => ({ type: LOGOUT_FAILURE, payload: error 
 export const me = () => async dispatch => {
 	dispatch(meRequestAC());
 
+	try {
+		const responce = await getMe();
 
+		if (responce.data.resultCode === 0) {
+			dispatch(meSuccessAC(responce.data.data.id, responce.data.data.login));
+		}
+	}
 };
 
