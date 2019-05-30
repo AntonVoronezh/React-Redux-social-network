@@ -17,5 +17,9 @@ export const meRequestAC = () => ({ type: ME_REQUEST });
 export const meSuccessAC = (userId, userName) => ({ type: ME_SUCCESS, payload: { userId, userName } });
 export const meFailureAC = error => ({ type: ME_FAILURE, payload: error });
 
+export const logoutRequestAC = () => ({ type: LOGOUT_REQUEST });
+export const logoutSuccessAC = () => ({ type: LOGOUT_SUCCESS });
+export const logoutFailureAC = error => ({ type: LOGOUT_FAILURE, payload: error });
+
 
 
