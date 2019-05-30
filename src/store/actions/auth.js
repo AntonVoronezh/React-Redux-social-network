@@ -35,3 +35,8 @@ export const me = () => async dispatch => {
 	}
 };
 
+export const logout = () => async dispatch => {
+	dispatch(logoutRequestAC());
+
+
+};
