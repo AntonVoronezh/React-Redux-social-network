@@ -58,7 +58,17 @@ export default (state = initialState, action) => {
 				errorMessage: action.payload,
 			};
 		}
-
+		case LOGOUT_SUCCESS: {
+			return {
+				...state,
+				isAuth: false,
+				userInfo: {
+					userId: null,
+					userName: null,
+				},
+				status: statuses.INIT,
+			};
+		}
 
 		default:
 			return state;
