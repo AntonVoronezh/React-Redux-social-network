@@ -30,6 +30,8 @@ export const me = () => async dispatch => {
 		if (responce.data.resultCode === 0) {
 			dispatch(meSuccessAC(responce.data.data.id, responce.data.data.login));
 		}
+	} catch (err) {
+		dispatch(meFailureAC(err));
 	}
 };
 
