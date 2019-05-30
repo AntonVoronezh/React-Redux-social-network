@@ -21,6 +21,12 @@ export default (state = initialState, action) => {
 				isAuth: action.payload,
 			};
 		}
+		case ME_REQUEST: {
+			return {
+				...state,
+				status: statuses.REQUEST,
+			};
+		}
 
 
 
