@@ -38,5 +38,11 @@ export const me = () => async dispatch => {
 export const logout = () => async dispatch => {
 	dispatch(logoutRequestAC());
 
+	try {
+		const responce = await logOut();
 
+		if (responce.data.resultCode === 0) {
+			dispatch(logoutSuccessAC());
+		}
+	} 
 };
