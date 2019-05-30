@@ -45,7 +45,12 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
-
+		case LOGOUT_REQUEST: {
+			return {
+				...state,
+				status: statuses.REQUEST,
+			};
+		}
 
 
 		default:
