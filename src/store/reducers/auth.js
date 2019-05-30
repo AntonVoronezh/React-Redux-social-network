@@ -35,6 +35,16 @@ export default (state = initialState, action) => {
 			};
 		}
 
+		case ME_SUCCESS: {
+			return {
+				...state,
+				status: statuses.SUCCESS,
+				userInfo: {
+					userId: action.payload.userId,
+					userName: action.payload.userName,
+				},
+			};
+		}
 
 
 
