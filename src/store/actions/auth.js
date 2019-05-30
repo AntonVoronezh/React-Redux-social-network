@@ -13,5 +13,9 @@ export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 
 export const setIsAuthAC = value => ({ type: SET_IS_AUTH, payload: value });
 
+export const meRequestAC = () => ({ type: ME_REQUEST });
+export const meSuccessAC = (userId, userName) => ({ type: ME_SUCCESS, payload: { userId, userName } });
+export const meFailureAC = error => ({ type: ME_FAILURE, payload: error });
+
 
 
