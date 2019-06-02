@@ -8,7 +8,13 @@ class Header extends React.Component {
 		this.props.me();
 	}
 
-
+	render() {
+		return (
+			<React.Fragment>
+				<HeaderCom {...this.props} />
+			</React.Fragment>
+		);
+	}
 }
 
 
