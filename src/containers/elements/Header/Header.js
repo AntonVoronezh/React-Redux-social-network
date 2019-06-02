@@ -17,7 +17,12 @@ class Header extends React.Component {
 	}
 }
 
-
+const mapStateToProps = ({ auth }) => {
+	return {
+		isAuth: auth.isAuth,
+		userName: auth.userInfo.userName,
+	};
+};
 
 
 export default connect(
