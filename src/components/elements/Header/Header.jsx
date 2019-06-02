@@ -19,3 +19,8 @@ const Header = ({ isAuth, userName, logoutCB }) => {
 
 export default Header;
 
+Header.propTypes = {
+	isAuth: PropTypes.bool.isRequired,
+	logoutCB: PropTypes.func.isRequired,
+	userName: PropTypes.string,
+};
