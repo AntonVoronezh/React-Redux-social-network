@@ -24,6 +24,12 @@ const mapStateToProps = ({ auth }) => {
 	};
 };
 
+const mapDispatchToProps = dispatch => {
+	return {
+		me: () => dispatch(me()),
+		logoutCB: () => dispatch(logout()),
+	};
+};
 
 export default connect(
 	mapStateToProps,
