@@ -6,16 +6,19 @@ import statuses from '../../../helpers/axios/constants';
 
 const Login = ({
 	addNewUsernameTextCB,
-	username,
+	email,
 	addNewPasswordTextCB,
 	password,
 	changeRememberCB,
-	remember,
-	// validationFormCB,
+	rememberMe,
 	loginCB,
 	errorMessage,
 	status,
 	isAuth,
+	captchaRequired,
+	capthaUrl,
+	captcha,
+	addNewCaptchaTextCB,
 }) => {
 	const usernameInputHandler = ({ nativeEvent: { data } }) => {
 		addNewUsernameTextCB(data);
@@ -23,13 +26,15 @@ const Login = ({
 	const passwordInputHandler = ({ nativeEvent: { data } }) => {
 		addNewPasswordTextCB(data);
 	};
+	const captchaInputHandler = ({ nativeEvent: { data } }) => {
+		addNewCaptchaTextCB(data);
+	};
 	const checkboxInputHandler = () => {
 		changeRememberCB();
 	};
 
 	const submitFormHandler = () => {
-		// validationFormCB();
-		loginCB(username, password, remember);
+		loginCB();
 	};
 
 	if (isAuth) {
@@ -45,7 +50,7 @@ const Login = ({
 						label="Username"
 						placeholder="username"
 						onChange={usernameInputHandler}
-						value={username}
+						value={email}
 					/>
 					<Form.Input
 						fluid
@@ -54,16 +59,30 @@ const Login = ({
 						onChange={passwordInputHandler}
 						value={password}
 					/>
+					{captchaRequired && (
+						<Form.Input
+							fluid
+							label="Капча"
+							placeholder="captcha"
+							onChange={captchaInputHandler}
+							value={captcha}
+						/>
+					)}
 				</Form.Group>
 
 				<Checkbox
 					label="Запомнить меня"
 					onChange={checkboxInputHandler}
 					style={{ marginBottom: '10px' }}
-					control={toString(remember)}
+					control={toString(rememberMe)}
 				/>
 				<br />
-				<Button type="submit" disabled={!(!!username && !!password)}>
+				{captchaRequired && (
+					<div>
+						<img src={capthaUrl} alt="captca" />
+					</div>
+				)}
+				<Button type="submit" disabled={!(!!email && !!password) || status === statuses.REQUEST}>
 					Submit
 				</Button>
 			</Form>
@@ -78,12 +97,15 @@ Login.propTypes = {
 	addNewUsernameTextCB: PropTypes.func.isRequired,
 	addNewPasswordTextCB: PropTypes.func.isRequired,
 	changeRememberCB: PropTypes.func.isRequired,
-	username: PropTypes.string.isRequired,
+	email: PropTypes.string.isRequired,
 	password: PropTypes.string.isRequired,
-	remember: PropTypes.bool.isRequired,
+	rememberMe: PropTypes.bool.isRequired,
 	loginCB: PropTypes.func.isRequired,
 	status: PropTypes.string.isRequired,
 	errorMessage: PropTypes.string,
 	isAuth: PropTypes.bool.isRequired,
-	// validationFormCB: PropTypes.func.isRequired,
+	captchaRequired: PropTypes.bool.isRequired,
+	capthaUrl: PropTypes.string,
+	captcha: PropTypes.string.isRequired,
+	addNewCaptchaTextCB: PropTypes.func,
 };

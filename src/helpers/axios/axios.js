@@ -23,12 +23,12 @@ export const getProfile = id => {
 	return axios.get(`${endPoint}/${id}`);
 };
 
-export const tryLogin = (email, password, rememberMe) => {
+export const tryLogin = (email, password, rememberMe, captcha) => {
 	// const endPoint = '/auth/login';
 	// const payload = {email, password, rememberMe};
 
 	// return axios.post(`${endPoint},` + payload);
-	return axios.post('/auth/login', {email, password, rememberMe});
+	return axios.post('/auth/login', {email, password, rememberMe, captcha});
 };
 
 export const getMe = () => {
@@ -41,5 +41,11 @@ export const logOut = () => {
 	const endPoint = '/auth/logout';
 
 	return axios.post(`${endPoint}`);
+};
+
+export const getCaptcha = () => {
+	const endPoint = '/security/get-captcha-url';
+
+	return axios.get(`${endPoint}`);
 };
 

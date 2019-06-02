@@ -1,22 +1,22 @@
-import { validationForm } from '../../helpers/forms/validation';
 import statuses from '../../helpers/axios/constants';
-// import { setInStorage, getInStorage } from '../../helpers/localStorage/localStorage';
 
-import { ADD_NEW_PASSWORD_TEXT, ADD_NEW_USERNAME_TEXT, CHANGE_REMEMBER } from '../actions/login';
+import { ADD_NEW_PASSWORD_TEXT, ADD_NEW_USERNAME_TEXT, CHANGE_REMEMBER, ADD_NEW_CAPTCHA_TEXT } from '../actions/login';
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN_ERROR } from '../actions/login';
+import { CAPTCHA_REQUEST, CAPTCHA_FAILURE, CAPTCHA_SUCCESS } from '../actions/login';
 
 const initialState = {
 	form: {
-		username: '',
+		email: '',
 		password: '',
-		remember: false,
+		rememberMe: false,
+		captchaRequired: false,
+		capthaUrl: null,
+		captcha:'',
 	},
 	request: {
 		status: statuses.INIT,
 		errorMessage: null,
-		captchaUrl: null,
 	},
-	// validation: false,
 };
 
 export default (state = initialState, action) => {
@@ -26,10 +26,10 @@ export default (state = initialState, action) => {
 				...state,
 				form: {
 					...state.form,
-					username:
+					email:
 						action.payload !== null
-							? state.form.username + action.payload
-							: state.form.username.substr(0, state.form.username.length - 1),
+							? state.form.email + action.payload
+							: state.form.email.substr(0, state.form.email.length - 1),
 				},
 			};
 		}
@@ -45,12 +45,24 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
+		case ADD_NEW_CAPTCHA_TEXT: {
+			return {
+				...state,
+				form: {
+					...state.form,
+					captcha:
+						action.payload !== null
+							? state.form.captcha + action.payload
+							: state.form.captcha.substr(0, state.form.captcha.length - 1),
+				},
+			};
+		}
 		case CHANGE_REMEMBER: {
 			return {
 				...state,
 				form: {
 					...state.form,
-					remember: !state.form.remember,
+					rememberMe: !state.form.rememberMe,
 				},
 			};
 		}
@@ -93,14 +105,43 @@ export default (state = initialState, action) => {
 				},
 			};
 		}
-		// case VALIDATION_FORM: {
-		//     let isValid = validationForm(state.username, state.password)
 
-		//     return {
-		// 		...state,
-		// 		validation: isValid,
-		// 	};
-		// }
+		case CAPTCHA_REQUEST: {
+			return {
+				...state,
+				request: {
+					...state.request,
+					status: statuses.REQUEST,
+					errorMessage: null,
+				},
+			};
+		}
+
+		case CAPTCHA_FAILURE: {
+			return {
+				...state,
+				request: {
+					...state.request,
+					status: statuses.ERROR,
+					errorMessage: action.payload,
+				},
+			};
+		}
+
+		case CAPTCHA_SUCCESS: {
+			return {
+				...state,
+				request: {
+					...state.request,
+					status: statuses.SUCCESS,
+				},
+				form: {
+					...state.form,
+					captchaRequired: true,
+					capthaUrl: action.payload,
+				},
+			};
+		}
 
 		default:
 			return state;
