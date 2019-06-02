@@ -6,6 +6,8 @@ const Header = ({ isAuth, userName, logoutCB }) => {
 		logoutCB();
 	};
 
+	const result2 = isAuth ? userName : null;
+	const result = isAuth ? <span onClick={spanLogoutHandler}>Log Out</span> : null;
 
 
 };
