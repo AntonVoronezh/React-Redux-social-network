@@ -12,7 +12,13 @@ class Users extends React.Component {
 		this.props.fetchUsersCB(number, this.props.count);
 	};
 
+	render() {
+		const paginationCount = Math.ceil(this.props.totalCount / this.props.count);
 
+		return (
+
+		);
+	}
 }
 
 
