@@ -27,7 +27,11 @@ class Users extends React.Component {
 	}
 }
 
-
+const mapStateToProps = ({ users }) => {
+	return {
+		...users,
+	};
+};
 
 // const mapDispatchToProps = dispatch => {
 // 	return {
