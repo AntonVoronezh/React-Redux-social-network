@@ -4,6 +4,9 @@ import UsersPage from '../../components/pages/Users/Users';
 import { fetchUsers, followUserById, unFollowUserById, setPageNumberAC } from '../../store/actions/users';
 
 class Users extends React.Component {
+	componentDidMount() {
+		this.props.fetchUsersCB();
+	}
 
 
 
