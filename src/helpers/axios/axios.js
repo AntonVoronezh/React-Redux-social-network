@@ -28,7 +28,7 @@ export const tryLogin = (email, password, rememberMe, captcha) => {
 	// const payload = {email, password, rememberMe};
 
 	// return axios.post(`${endPoint},` + payload);
-	return axios.post('/auth/login', {email, password, rememberMe, captcha});
+	return axios.post('/auth/login', { email, password, rememberMe, captcha });
 };
 
 export const getMe = () => {
@@ -49,3 +49,14 @@ export const getCaptcha = () => {
 	return axios.get(`${endPoint}`);
 };
 
+export const makeFollow = id => {
+	const endPoint = '/follow';
+
+	return axios.post(`${endPoint}/${id}`);
+};
+
+export const makeUnfollow = id => {
+	const endPoint = '/follow';
+
+	return axios.delete(`${endPoint}/${id}`);
+};
