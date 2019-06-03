@@ -13,6 +13,7 @@ const Users = ({
 	page,
 	setPageNumberCB,
 	paginationHandlerCB,
+	status,
 }) => {
 	let users, result, pagination;
 
@@ -25,7 +26,7 @@ const Users = ({
 
 	!error
 		? (users = data.map(u => {
-				return <User key={u.id} {...u} followCB={followCB} unfollowCB={unfollowCB} />;
+				return <User key={u.id} {...u} followCB={followCB} unfollowCB={unfollowCB} status={status}/>;
 		  }))
 		: (users = `Ошибка "${error.message}". Попробуйте еще раз.`);
 
@@ -67,6 +68,7 @@ Users.propTypes = {
 	isLoading: PropTypes.bool.isRequired,
 	users: PropTypes.array.isRequired,
 	error: PropTypes.string,
+	status: PropTypes.string.isRequired,
 	paginationCount: PropTypes.number.isRequired,
 	setPageNumberCB: PropTypes.func.isRequired,
 };

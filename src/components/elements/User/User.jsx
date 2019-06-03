@@ -5,6 +5,7 @@ import { Segment } from 'semantic-ui-react';
 import classes from './User.module.css';
 import Img from '../../../assets/img/1.png';
 import Button from '../UI/Button/Button';
+import statuses from '../../../helpers/axios/constants';
 
 const Users = ({ followCB, unfollowCB, photos, name, followed, id, status }) => {
 	return (
@@ -17,9 +18,16 @@ const Users = ({ followCB, unfollowCB, photos, name, followed, id, status }) => 
 
 					<br />
 					{!followed ? (
-						<Button callback={followCB} content="Follow" id={id} />
+						<Button callback={followCB} content="Follow" id={id} 
+						// disabled={status === statuses.REQUEST}
+						 />
 					) : (
-						<Button callback={unfollowCB} content="UnFollow" id={id} />
+						<Button
+							callback={unfollowCB}
+							content="UnFollow"
+							id={id}
+							// disabled={status === statuses.REQUEST}
+						/>
 					)}
 				</Segment>
 				<Segment className={classes.contaent}>{name}</Segment>
@@ -37,4 +45,5 @@ Users.propTypes = {
 	name: PropTypes.string.isRequired,
 	followed: PropTypes.bool.isRequired,
 	id: PropTypes.number.isRequired,
+	status: PropTypes.string.isRequired,
 };
