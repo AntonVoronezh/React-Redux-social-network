@@ -8,7 +8,9 @@ class Users extends React.Component {
 		this.props.fetchUsersCB();
 	}
 
-
+	paginationHandler = (number = this.props.page) => {
+		this.props.fetchUsersCB(number, this.props.count);
+	};
 
 
 }
