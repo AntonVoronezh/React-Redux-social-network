@@ -16,7 +16,13 @@ class Users extends React.Component {
 		const paginationCount = Math.ceil(this.props.totalCount / this.props.count);
 
 		return (
-
+			<>
+				<UsersPage
+					{...this.props}
+					paginationCount={paginationCount}
+					paginationHandlerCB={this.paginationHandler}
+				/>
+			</>
 		);
 	}
 }
