@@ -30,5 +30,12 @@ const mapStateToProps = ({ profile }) => {
 	};
 };
 
+const mapDispatchToProps = dispatch => {
+	return {
+		addPostCB: () => dispatch(addPostAC()),
+		addNewMessageCB: text => dispatch(addNewMessageAC(text)),
+		fetchProfileCB: id => dispatch(fetchProfile(id)),
+	};
+};
 
 
