@@ -5,5 +5,11 @@ import { addDialogAC, addNewDialogTextAC } from '../../store/actions/dialogs';
 
 // const get
 
+const mapStateToProps = ({ dialogs }) => {
+	return {
+		...dialogs,
+	};
+};
+
 
 
