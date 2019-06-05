@@ -19,7 +19,7 @@ const fetchProfile = id => async dispatch => {
 
 	try {
 		const responce = await getProfile(id);
-		dispatch(profileSuccessAC(responce.data));
+		dispatch(profileSuccessAC(responce));
 	} catch (err) {
 		dispatch(profileFailureAC(err));
 	}

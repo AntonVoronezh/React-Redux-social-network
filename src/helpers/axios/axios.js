@@ -1,6 +1,6 @@
 import axios from './axiosInstance';
 
-export const getUsers = (page, count) => {
+export const getUsers = async (page, count) => {
 	const endPoint = '/users';
 	let payload = '';
 
@@ -14,21 +14,24 @@ export const getUsers = (page, count) => {
 		payload = '';
 	}
 
-	return axios.get(`${endPoint}${payload}`);
+	const responce = await axios.get(`${endPoint}${payload}`);
+	return responce.data;
 };
 
-export const getProfile = id => {
+export const getProfile = async id => {
 	const endPoint = '/profile';
 
-	return axios.get(`${endPoint}/${id}`);
+	const responce = await axios.get(`${endPoint}/${id}`);
+	return responce.data;
 };
 
-export const tryLogin = (email, password, rememberMe, captcha) => {
+export const tryLogin = async (email, password, rememberMe, captcha) => {
 	// const endPoint = '/auth/login';
 	// const payload = {email, password, rememberMe};
 
 	// return axios.post(`${endPoint},` + payload);
-	return axios.post('/auth/login', { email, password, rememberMe, captcha });
+	const responce = await axios.post('/auth/login', { email, password, rememberMe, captcha });
+	return responce.data;
 };
 
 export const getMe = () => {
@@ -43,10 +46,11 @@ export const logOut = () => {
 	return axios.post(`${endPoint}`);
 };
 
-export const getCaptcha = () => {
+export const getCaptcha = async () => {
 	const endPoint = '/security/get-captcha-url';
 
-	return axios.get(`${endPoint}`);
+	const responce = await axios.get(`${endPoint}`);
+	return responce.data;
 };
 
 export const makeFollow = id => {

@@ -43,17 +43,17 @@ export const login = () => async (dispatch, getState) => {
 	try {
 		const responce = await tryLogin(state.email, state.password, state.rememberMe, state.captcha );
 
-		if (responce.data.resultCode === 0) {
-			dispatch(loginSuccessAC(responce.data));
+		if (responce.resultCode === 0) {
+			dispatch(loginSuccessAC(responce));
 			dispatch(setIsAuthAC(true));
-		} else if (responce.data.resultCode === 1) {
-			dispatch(loginErrorAC(responce.data.messages[0]));
-		} else if (responce.data.resultCode === 10) {
+		} else if (responce.resultCode === 1) {
+			dispatch(loginErrorAC(responce.messages[0]));
+		} else if (responce.resultCode === 10) {
 			dispatch(captchaRequestAC());
 
 			try {
 				const captchaUrl = await getCaptcha();
-				dispatch(captchaSuccessAC(captchaUrl.data.url));
+				dispatch(captchaSuccessAC(captchaUrl.url));
 			} catch (err) {
 				dispatch(captchaFailureAC(err));
 			}
