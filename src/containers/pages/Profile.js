@@ -24,6 +24,11 @@ class Profile extends React.Component {
 	}
 }
 
+const mapStateToProps = ({ profile }) => {
+	return {
+		...profile,
+	};
+};
 
 
 
