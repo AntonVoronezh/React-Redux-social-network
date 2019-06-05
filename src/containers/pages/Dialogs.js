@@ -11,5 +11,11 @@ const mapStateToProps = ({ dialogs }) => {
 	};
 };
 
+const mapDispatchToProps = dispatch => {
+	return {
+		addDialogCB: id => dispatch(addDialogAC(id)),
+		addNewDialogTextCB: text => dispatch(addNewDialogTextAC(text)),
+	};
+};
 
 
