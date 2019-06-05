@@ -15,7 +15,13 @@ class Profile extends React.Component {
 		this.props.fetchProfileCB(iserId);
 	}
 
-
+	render() {
+		return (
+			<>
+				<ProfilePage {...this.props} />
+			</>
+		);
+	}
 }
 
 
