@@ -11,6 +11,14 @@ const mapStateToProps = ({ login, auth }) => {
 	};
 };
 
-
+const mapDispatchToProps = dispatch => {
+	return {
+		addNewUsernameTextCB: text => dispatch(addNewUsernameTextAC(text)),
+		addNewPasswordTextCB: text => dispatch(addNewPasswordTextAC(text)),
+		addNewCaptchaTextCB: text => dispatch(addNewCaptchaTextAC(text)),
+		changeRememberCB: () => dispatch(changeRememberAC()),
+		loginCB: () => dispatch(login()),
+	};
+};
 
 
