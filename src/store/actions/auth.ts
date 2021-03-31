@@ -1,4 +1,5 @@
 import { getMe, logOut } from "../../helpers/axios/axios";
+import { UserInfoType } from "../reducers/auth";
 
 export const SET_IS_AUTH = "SET_IS_AUTH";
 export const SET_USER = "SET_USER";
@@ -20,13 +21,21 @@ export type MeRequestActionType = {
   type: typeof ME_REQUEST;
 };
 
+export type MeSuccessActionType = {
+  type: typeof ME_SUCCESS;
+  payload: UserInfoType;
+};
+
 export const setIsAuthAC = (value: boolean): SetIsAuthActionType => ({
   type: SET_IS_AUTH,
   payload: value,
 });
 
 export const meRequestAC = (): MeRequestActionType => ({ type: ME_REQUEST });
-export const meSuccessAC = (userId, userName) => ({
+export const meSuccessAC = (
+  userId: number,
+  userName: string
+): MeSuccessActionType => ({
   type: ME_SUCCESS,
   payload: { userId, userName },
 });
