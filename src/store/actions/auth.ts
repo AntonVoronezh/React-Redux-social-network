@@ -27,16 +27,21 @@ export type MeSuccessActionType = {
 };
 
 export type MeFailureActionType = {
-    type: typeof ME_FAILURE;
-    payload: string;
+  type: typeof ME_FAILURE;
+  payload: string;
 };
 
 export type LogoutRequestActionType = {
-    type: typeof LOGOUT_REQUEST;
+  type: typeof LOGOUT_REQUEST;
 };
 
 export type LogoutSuccessActionType = {
-    type: typeof LOGOUT_SUCCESS;
+  type: typeof LOGOUT_SUCCESS;
+};
+
+export type LogoutFailureActionType = {
+  type: typeof LOGOUT_FAILURE;
+  payload: string;
 };
 
 export const setIsAuthAC = (value: boolean): SetIsAuthActionType => ({
@@ -52,11 +57,18 @@ export const meSuccessAC = (
   type: ME_SUCCESS,
   payload: { userId, userName },
 });
-export const meFailureAC = (error: string): MeFailureActionType => ({ type: ME_FAILURE, payload: error });
+export const meFailureAC = (error: string): MeFailureActionType => ({
+  type: ME_FAILURE,
+  payload: error,
+});
 
-export const logoutRequestAC = (): LogoutRequestActionType => ({ type: LOGOUT_REQUEST });
-export const logoutSuccessAC = ():LogoutSuccessActionType => ({ type: LOGOUT_SUCCESS });
-export const logoutFailureAC = (error) => ({
+export const logoutRequestAC = (): LogoutRequestActionType => ({
+  type: LOGOUT_REQUEST,
+});
+export const logoutSuccessAC = (): LogoutSuccessActionType => ({
+  type: LOGOUT_SUCCESS,
+});
+export const logoutFailureAC = (error: string): LogoutFailureActionType => ({
   type: LOGOUT_FAILURE,
   payload: error,
 });
