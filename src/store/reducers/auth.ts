@@ -7,7 +7,19 @@ import {
 } from "../actions/auth";
 import statuses from "../../helpers/axios/constants";
 
-const initialState = {
+export type UserInfoType = {
+    userId: number | null;
+    userName: string | null;
+}
+
+export type InitialStateType = {
+    isAuth: boolean;
+    userInfo: UserInfoType;
+    errorMessage: string | null;
+    status: string;
+}
+
+const initialState: InitialStateType = {
   isAuth: false,
   userInfo: {
     userId: null,
