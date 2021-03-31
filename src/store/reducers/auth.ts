@@ -8,16 +8,16 @@ import {
 import statuses from "../../helpers/axios/constants";
 
 export type UserInfoType = {
-    userId: number | null;
-    userName: string | null;
-}
+  userId: number | null;
+  userName: string | null;
+};
 
 export type InitialStateType = {
-    isAuth: boolean;
-    userInfo: UserInfoType;
-    errorMessage: string | null;
-    status: string;
-}
+  isAuth: boolean;
+  userInfo: UserInfoType;
+  errorMessage: string | null;
+  status: string;
+};
 
 const initialState: InitialStateType = {
   isAuth: false,
