@@ -35,6 +35,10 @@ export type LogoutRequestActionType = {
     type: typeof LOGOUT_REQUEST;
 };
 
+export type LogoutSuccessActionType = {
+    type: typeof LOGOUT_SUCCESS;
+};
+
 export const setIsAuthAC = (value: boolean): SetIsAuthActionType => ({
   type: SET_IS_AUTH,
   payload: value,
@@ -51,7 +55,7 @@ export const meSuccessAC = (
 export const meFailureAC = (error: string): MeFailureActionType => ({ type: ME_FAILURE, payload: error });
 
 export const logoutRequestAC = (): LogoutRequestActionType => ({ type: LOGOUT_REQUEST });
-export const logoutSuccessAC = () => ({ type: LOGOUT_SUCCESS });
+export const logoutSuccessAC = ():LogoutSuccessActionType => ({ type: LOGOUT_SUCCESS });
 export const logoutFailureAC = (error) => ({
   type: LOGOUT_FAILURE,
   payload: error,
