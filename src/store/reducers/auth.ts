@@ -29,7 +29,7 @@ const initialState: InitialStateType = {
   status: statuses.INIT,
 };
 
-export default (state = initialState, action: any) => {
+export default (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case SET_IS_AUTH: {
       return {

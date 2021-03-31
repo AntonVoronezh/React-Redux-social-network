@@ -16,12 +16,16 @@ export type SetIsAuthActionType = {
   payload: boolean;
 };
 
+export type MeRequestActionType = {
+  type: typeof ME_REQUEST;
+};
+
 export const setIsAuthAC = (value: boolean): SetIsAuthActionType => ({
   type: SET_IS_AUTH,
   payload: value,
 });
 
-export const meRequestAC = () => ({ type: ME_REQUEST });
+export const meRequestAC = (): MeRequestActionType => ({ type: ME_REQUEST });
 export const meSuccessAC = (userId, userName) => ({
   type: ME_SUCCESS,
   payload: { userId, userName },
