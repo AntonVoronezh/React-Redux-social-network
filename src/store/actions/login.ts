@@ -1,6 +1,7 @@
+import { Dispatch } from "redux";
+
 import { tryLogin, getCaptcha } from "../../helpers/axios/axios";
-import { setIsAuthAC } from "./auth";
-import { ADD_NEW_DIALOG_TEXT } from "./dialogs";
+import { setIsAuthAC, SetIsAuthActionType } from "./auth";
 
 export const ADD_NEW_USERNAME_TEXT = "ADD_NEW_USERNAME_TEXT";
 export const ADD_NEW_PASSWORD_TEXT = "ADD_NEW_PASSWORD_TEXT";
@@ -127,7 +128,19 @@ export const captchaFailureAC = (error: string): CaptchaFailureActionType => ({
   payload: error,
 });
 
-export const login = () => async (dispatch, getState) => {
+export const login = (): any => async (
+  dispatch: Dispatch<
+    | CaptchaFailureActionType
+    | LoginSuccessActionType
+    | LoginErrorActionType
+    | LoginRequestActionType
+    | SetIsAuthActionType
+    | CaptchaRequestActionType
+    | CaptchaSuccessActionType
+    | LoginFailureActionType
+  >,
+  getState: Function
+) => {
   dispatch(loginRequestAC());
 
   const state = getState().login.form;
@@ -141,7 +154,7 @@ export const login = () => async (dispatch, getState) => {
     );
 
     if (responce.data.resultCode === 0) {
-      dispatch(loginSuccessAC(responce.data));
+      dispatch(loginSuccessAC());
       dispatch(setIsAuthAC(true));
     } else if (responce.data.resultCode === 1) {
       dispatch(loginErrorAC(responce.data.messages[0]));
