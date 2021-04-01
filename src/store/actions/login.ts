@@ -25,7 +25,13 @@ export type AddNNewUsernameTextActionType = {
 };
 
 export const addNewUsernameTextAC = (text: string): AddNNewUsernameTextActionType => ({ type: ADD_NEW_USERNAME_TEXT, payload: text });
-export const addNewPasswordTextAC = text => ({ type: ADD_NEW_PASSWORD_TEXT, payload: text });
+
+export type AddNNewPasswordTextActionType = {
+	type: typeof ADD_NEW_PASSWORD_TEXT;
+	payload: string;
+};
+
+export const addNewPasswordTextAC = (text:string): AddNNewPasswordTextActionType => ({ type: ADD_NEW_PASSWORD_TEXT, payload: text });
 
 export const addNewCaptchaTextAC = text => ({ type: ADD_NEW_CAPTCHA_TEXT, payload: text });
 
