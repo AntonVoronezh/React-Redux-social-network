@@ -33,7 +33,12 @@ export type AddNNewPasswordTextActionType = {
 
 export const addNewPasswordTextAC = (text:string): AddNNewPasswordTextActionType => ({ type: ADD_NEW_PASSWORD_TEXT, payload: text });
 
-export const addNewCaptchaTextAC = text => ({ type: ADD_NEW_CAPTCHA_TEXT, payload: text });
+export type AddNNewCaptchaTextActionType = {
+	type: typeof ADD_NEW_CAPTCHA_TEXT;
+	payload: string;
+};
+
+export const addNewCaptchaTextAC = (text: string): AddNNewCaptchaTextActionType => ({ type: ADD_NEW_CAPTCHA_TEXT, payload: text });
 
 export const changeRememberAC = () => ({ type: CHANGE_REMEMBER });
 
