@@ -5,7 +5,5 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers/root';
 
-export const store = () => createStore(rootReducer, applyMiddleware(thunk, logger));
+export const storeI = () => createStore(rootReducer, applyMiddleware(thunk, logger));
 
-// export type RootState = typeof store.getState;
-// export type AppDispatch = typeof store.dispatch;
