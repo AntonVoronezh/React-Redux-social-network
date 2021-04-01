@@ -40,10 +40,24 @@ export type AddNNewCaptchaTextActionType = {
 
 export const addNewCaptchaTextAC = (text: string): AddNNewCaptchaTextActionType => ({ type: ADD_NEW_CAPTCHA_TEXT, payload: text });
 
-export const changeRememberAC = () => ({ type: CHANGE_REMEMBER });
+export type ChangeRememberActionType = {
+	type: typeof CHANGE_REMEMBER;
+};
 
-export const loginRequestAC = () => ({ type: LOGIN_REQUEST });
-export const loginSuccessAC = () => ({ type: LOGIN_SUCCESS });
+export const changeRememberAC = (): ChangeRememberActionType => ({ type: CHANGE_REMEMBER });
+
+export type LoginRequestActionType = {
+	type: typeof LOGIN_REQUEST;
+};
+
+export const loginRequestAC = ():LoginRequestActionType => ({ type: LOGIN_REQUEST });
+
+export type LoginSuccessActionType = {
+	type: typeof LOGIN_SUCCESS;
+};
+
+
+export const loginSuccessAC = () : LoginSuccessActionType=> ({ type: LOGIN_SUCCESS });
 export const loginFailureAC = error => ({ type: LOGIN_FAILURE, payload: error });
 
 export const loginErrorAC = error => ({ type: LOGIN_ERROR, payload: error });
