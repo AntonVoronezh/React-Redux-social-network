@@ -56,13 +56,27 @@ export type LoginSuccessActionType = {
 	type: typeof LOGIN_SUCCESS;
 };
 
-
 export const loginSuccessAC = () : LoginSuccessActionType=> ({ type: LOGIN_SUCCESS });
-export const loginFailureAC = error => ({ type: LOGIN_FAILURE, payload: error });
 
-export const loginErrorAC = error => ({ type: LOGIN_ERROR, payload: error });
+export type LoginFailureActionType = {
+	type: typeof LOGIN_FAILURE;
+	payload: string;
+};
 
-export const captchaRequestAC = () => ({ type: CAPTCHA_REQUEST });
+export const loginFailureAC = (error: string): LoginFailureActionType => ({ type: LOGIN_FAILURE, payload: error });
+
+export type LoginErrorActionType = {
+	type: typeof LOGIN_ERROR;
+	payload: string;
+};
+
+export const loginErrorAC = (error: string): LoginErrorActionType => ({ type: LOGIN_ERROR, payload: error });
+
+export type CaptchaRequestActionType = {
+	type: typeof CAPTCHA_REQUEST;
+};
+
+export const captchaRequestAC = (): CaptchaRequestActionType => ({ type: CAPTCHA_REQUEST });
 export const captchaSuccessAC = url => ({ type: CAPTCHA_SUCCESS, payload: url });
 export const captchaFailureAC = error => ({ type: CAPTCHA_FAILURE, payload: error });
 
