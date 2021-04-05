@@ -1,9 +1,4 @@
 import { getUsers, makeFollow, makeUnfollow } from "../../helpers/axios/axios";
-import {
-  PROFILE_REQUEST,
-  PROFILE_SUCCESS,
-  ProfileSuccessActionType,
-} from "./profile";
 
 export const USERS_REQUEST = "USERS_REQUEST";
 export const USERS_SUCCESS = "USERS_SUCCESS";
@@ -63,31 +58,69 @@ export const setPageNumberAC = (num: number): SetPageNumberType => ({
 });
 
 export type UsersFailureType = {
-	type: typeof USERS_FAILURE;
-	payload: string;
+  type: typeof USERS_FAILURE;
+  payload: string;
 };
 
 export type UsersRequestType = {
-	type: typeof USERS_REQUEST;
+  type: typeof USERS_REQUEST;
 };
 
 export type UsersSuccessType = {
-	type: typeof USERS_SUCCESS;
-	payload: string;
+  type: typeof USERS_SUCCESS;
+  payload: string;
 };
 
-
-const usersFailureAC = (error: string): UsersFailureType => ({ type: USERS_FAILURE, payload: error });
+const usersFailureAC = (error: string): UsersFailureType => ({
+  type: USERS_FAILURE,
+  payload: error,
+});
 const usersRequestAC = (): UsersRequestType => ({ type: USERS_REQUEST });
-const usersSuccessAC = (data: string): UsersSuccessType => ({ type: USERS_SUCCESS, payload: data });
+const usersSuccessAC = (data: string): UsersSuccessType => ({
+  type: USERS_SUCCESS,
+  payload: data,
+});
 
-const followFailureAC = (error) => ({ type: FOLLOW_FAILURE, payload: error });
-const followRequestAC = () => ({ type: FOLLOW_REQUEST });
-const followSuccessAC = () => ({ type: FOLLOW_SUCCESS });
+export type FollowFailureType = {
+  type: typeof FOLLOW_FAILURE;
+  payload: string;
+};
 
-const unfollowRequestAC = () => ({ type: UNFOLLOW_REQUEST });
-const unfollowSuccessAC = () => ({ type: UNFOLLOW_SUCCESS });
-const unfollowFailureAC = (error) => ({
+export type FollowRequestType = {
+  type: typeof FOLLOW_REQUEST;
+};
+
+export type FollowSuccessType = {
+  type: typeof FOLLOW_SUCCESS;
+};
+
+const followFailureAC = (error: string): FollowFailureType => ({
+  type: FOLLOW_FAILURE,
+  payload: error,
+});
+const followRequestAC = (): FollowRequestType => ({ type: FOLLOW_REQUEST });
+const followSuccessAC = (): FollowSuccessType => ({ type: FOLLOW_SUCCESS });
+
+export type UnFollowFailureType = {
+  type: typeof UNFOLLOW_FAILURE;
+  payload: string;
+};
+
+export type UnFollowRequestType = {
+  type: typeof UNFOLLOW_REQUEST;
+};
+
+export type UnFollowSuccessType = {
+  type: typeof UNFOLLOW_SUCCESS;
+};
+
+const unfollowRequestAC = (): UnFollowRequestType => ({
+  type: UNFOLLOW_REQUEST,
+});
+const unfollowSuccessAC = (): UnFollowSuccessType => ({
+  type: UNFOLLOW_SUCCESS,
+});
+const unfollowFailureAC = (error: string): UnFollowFailureType => ({
   type: UNFOLLOW_FAILURE,
   payload: error,
 });
