@@ -62,9 +62,24 @@ export const setPageNumberAC = (num: number): SetPageNumberType => ({
   payload: num,
 });
 
-const usersFailureAC = (error) => ({ type: USERS_FAILURE, payload: error });
-const usersRequestAC = () => ({ type: USERS_REQUEST });
-const usersSuccessAC = (data) => ({ type: USERS_SUCCESS, payload: data });
+export type UsersFailureType = {
+	type: typeof USERS_FAILURE;
+	payload: string;
+};
+
+export type UsersRequestType = {
+	type: typeof USERS_REQUEST;
+};
+
+export type UsersSuccessType = {
+	type: typeof USERS_SUCCESS;
+	payload: string;
+};
+
+
+const usersFailureAC = (error: string): UsersFailureType => ({ type: USERS_FAILURE, payload: error });
+const usersRequestAC = (): UsersRequestType => ({ type: USERS_REQUEST });
+const usersSuccessAC = (data: string): UsersSuccessType => ({ type: USERS_SUCCESS, payload: data });
 
 const followFailureAC = (error) => ({ type: FOLLOW_FAILURE, payload: error });
 const followRequestAC = () => ({ type: FOLLOW_REQUEST });
