@@ -1,5 +1,6 @@
 import { getProfile } from "../../helpers/axios/axios";
 import { CAPTCHA_FAILURE } from "./login";
+import { Dispatch } from "redux";
 
 export const ADD_POST = "ADD_POST";
 export const ADD_NEW_MESSAGE_TEXT = "ADD_NEW_MESSAGE_TEXT";
@@ -47,7 +48,11 @@ const profileSuccessAC = (data: string): ProfileSuccessActionType => ({
   payload: data,
 });
 
-const fetchProfile = (id) => async (dispatch) => {
+const fetchProfile = (id: number): any => async (
+  dispatch: Dispatch<
+    ProfileSuccessActionType | ProfileFailureActionType | ProfileRequestType
+  >
+): Promise<any> => {
   dispatch(profileRequestAC());
 
   try {
