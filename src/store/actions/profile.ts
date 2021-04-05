@@ -25,8 +25,13 @@ export type ProfileFailureActionType = {
 	payload: string;
 };
 
+export type ProfileRequestType = {
+	type: typeof PROFILE_REQUEST;
+};
+
+
 const profileFailureAC = (error: string):ProfileFailureActionType => ({ type: PROFILE_FAILURE, payload: error });
-const profileRequestAC = () => ({ type: PROFILE_REQUEST });
+const profileRequestAC = ():ProfileRequestType => ({ type: PROFILE_REQUEST });
 const profileSuccessAC = (data: string) => ({ type: PROFILE_SUCCESS, payload: data });
 
 const fetchProfile = id => async dispatch => {
