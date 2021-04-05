@@ -1,4 +1,5 @@
 import { getUsers, makeFollow, makeUnfollow } from "../../helpers/axios/axios";
+import { Dispatch } from "redux";
 
 export const USERS_REQUEST = "USERS_REQUEST";
 export const USERS_SUCCESS = "USERS_SUCCESS";
@@ -125,7 +126,11 @@ const unfollowFailureAC = (error: string): UnFollowFailureType => ({
   payload: error,
 });
 
-const fetchUsers = (page, count) => async (dispatch) => {
+const fetchUsers = (page: number, count: number): any => async (
+  dispatch: Dispatch<
+    UsersRequestType | UsersFailureType | UsersSuccessType | GetTotalCountType
+  >
+): Promise<any> => {
   dispatch(usersRequestAC());
 
   try {
@@ -137,7 +142,11 @@ const fetchUsers = (page, count) => async (dispatch) => {
   }
 };
 
-const followUserById = (id) => async (dispatch) => {
+const followUserById = (id: number): any => async (
+  dispatch: Dispatch<
+    FollowRequestType | FollowFailureType | FollowSuccessType | FollowType
+  >
+) => {
   dispatch(followRequestAC());
 
   try {
@@ -151,7 +160,14 @@ const followUserById = (id) => async (dispatch) => {
   }
 };
 
-const unFollowUserById = (id) => async (dispatch) => {
+const unFollowUserById = (id: number): any => async (
+  dispatch: Dispatch<
+    | UnFollowRequestType
+    | UnFollowFailureType
+    | UnFollowSuccessType
+    | UnfollowType
+  >
+): Promise<any> => {
   dispatch(unfollowRequestAC());
 
   try {
