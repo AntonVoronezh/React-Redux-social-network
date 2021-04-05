@@ -20,9 +20,14 @@ export type AddNewMessageActionType = {
 export const addPostAC = (): AddPostActionType => ({ type: ADD_POST });
 export const addNewMessageAC = (text: string): AddNewMessageActionType => ({ type: ADD_NEW_MESSAGE_TEXT, payload: text });
 
-const profileFailureAC = error => ({ type: PROFILE_FAILURE, payload: error });
+export type ProfileFailureActionType = {
+	type: typeof PROFILE_FAILURE;
+	payload: string;
+};
+
+const profileFailureAC = (error: string):ProfileFailureActionType => ({ type: PROFILE_FAILURE, payload: error });
 const profileRequestAC = () => ({ type: PROFILE_REQUEST });
-const profileSuccessAC = data => ({ type: PROFILE_SUCCESS, payload: data });
+const profileSuccessAC = (data: string) => ({ type: PROFILE_SUCCESS, payload: data });
 
 const fetchProfile = id => async dispatch => {
 	dispatch(profileRequestAC());
