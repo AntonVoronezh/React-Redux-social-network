@@ -48,7 +48,7 @@ const initialState: InitialStateType = {
   },
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case ADD_NEW_USERNAME_TEXT: {
       return {
