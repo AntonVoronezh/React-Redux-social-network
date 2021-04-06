@@ -1,4 +1,9 @@
-import { ADD_DIALOG, ADD_NEW_DIALOG_TEXT } from "../actions/dialogs";
+import {
+  ADD_DIALOG,
+  ADD_NEW_DIALOG_TEXT,
+  AddDialogActionType,
+} from "../actions/dialogs";
+import { Action, AnyAction } from "redux";
 
 type DialogsItemType = {
   id: number;
@@ -73,10 +78,11 @@ const initialState: InitialStateType = {
   newDialogText: "+++",
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case ADD_DIALOG: {
       const newDialog = {
+        // @ts-ignore
         id: state.messages[action.payload].length + 1,
         text: state.newDialogText,
       };
@@ -84,6 +90,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         messages: {
           ...state.messages,
+          // @ts-ignore
           [action.payload]: [...state.messages[action.payload], newDialog],
         },
         newDialogText: "",
