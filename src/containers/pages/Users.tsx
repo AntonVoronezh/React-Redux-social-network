@@ -26,15 +26,15 @@ type PropsType = {
 };
 
 class Users extends React.Component<PropsType> {
-  componentDidMount() {
+  componentDidMount(): void {
     this.props.fetchUsersCB();
   }
 
-  paginationHandler = (number = this.props.page) => {
+  paginationHandler = (number = this.props.page): void => {
     this.props.fetchUsersCB(number, this.props.count);
   };
 
-  render() {
+  render(): React.ReactElement {
     const paginationCount = Math.ceil(this.props.totalCount / this.props.count);
 
     return (
