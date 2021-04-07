@@ -8,6 +8,7 @@ import {
   unFollowUserById,
   setPageNumberAC,
 } from "../../store/actions/users";
+import {AppStateType} from "../../store/reducers/root";
 
 type PropsType = {
   count: number;
@@ -49,7 +50,7 @@ class Users extends React.Component<PropsType> {
   }
 }
 
-const mapStateToProps = ({ users }: any): any => {
+const mapStateToProps = ({ users }: AppStateType): Partial<AppStateType> => {
   return {
     ...users,
   };
