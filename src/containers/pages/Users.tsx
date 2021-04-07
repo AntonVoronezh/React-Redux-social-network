@@ -14,6 +14,15 @@ type PropsType = {
   totalCount: number;
   fetchUsersCB: (num?: number, count?: number) => void;
   page: number;
+  followCB: () => any;
+  unfollowCB: () => any;
+  isLoading: boolean;
+  users: any[];
+  error: { message: string };
+  paginationCount: number;
+  setPageNumberCB: (num: number) => any;
+  paginationHandlerCB: (num: number) => any;
+  status: string;
 };
 
 class Users extends React.Component<PropsType> {
