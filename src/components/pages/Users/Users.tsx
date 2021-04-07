@@ -3,7 +3,7 @@ import { Loader, Pagination } from "semantic-ui-react";
 
 import User from "../../elements/User/User";
 
-type Props = {
+type PropsType = {
   followCB: () => any;
   unfollowCB: () => any;
   isLoading: boolean;
@@ -16,7 +16,7 @@ type Props = {
   status: string;
 };
 
-const Users: React.FC<Props> = ({
+const Users: React.FC<PropsType> = ({
   followCB,
   unfollowCB,
   isLoading,
