@@ -10,20 +10,25 @@ import {
 } from "../../store/actions/users";
 import {AppStateType} from "../../store/reducers/root";
 
-type PropsType = {
+type StatePropsType = {
   count: number;
   totalCount: number;
-  fetchUsersCB: (num?: number, count?: number) => void;
   page: number;
-  followCB: () => any;
-  unfollowCB: () => any;
+  status: string;
   isLoading: boolean;
   users: any[];
   error: { message: string };
   paginationCount: number;
+}
+
+type DispatchPropsType
+
+type PropsType = {
+  fetchUsersCB: (num?: number, count?: number) => void;
+  followCB: () => any;
+  unfollowCB: () => any;
   setPageNumberCB: (num: number) => any;
   paginationHandlerCB: (num: number) => any;
-  status: string;
 };
 
 class Users extends React.Component<PropsType> {
@@ -50,7 +55,7 @@ class Users extends React.Component<PropsType> {
   }
 }
 
-const mapStateToProps = ({ users }: AppStateType): Partial<AppStateType> => {
+const mapStateToProps = ({ users }: AppStateType): any => {
   return {
     ...users,
   };
