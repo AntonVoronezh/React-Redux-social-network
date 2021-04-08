@@ -22,11 +22,11 @@ type StatePropsType = {
 }
 
 type DispatchPropsType = {
-  fetchUsersCB: (num?: number, count?: number) => void;
-  followCB: () => any;
-  unfollowCB: () => any;
-  setPageNumberCB: (num: number) => any;
-  paginationHandlerCB: (num: number) => any;
+  fetchUsersCB: (num: number, count: number) => void;
+  followCB: () => void;
+  unfollowCB: () => void;
+  setPageNumberCB: (num: number) => void;
+  // paginationHandlerCB: (num: number) => any;
 }
 
 type OwnPropsType = {
@@ -37,7 +37,7 @@ type PropsType = StatePropsType & DispatchPropsType & OwnPropsType;
 
 class Users extends React.Component<PropsType> {
   componentDidMount(): void {
-    this.props.fetchUsersCB();
+    this.props.fetchUsersCB(1,1);
   }
 
   paginationHandler = (number = this.props.page): void => {
@@ -79,9 +79,11 @@ const mapStateToProps = ({ users }: AppStateType): any => {
 // 	mapDispatchToProps
 // )(Users);
 
-export default connect(mapStateToProps, {
+export default connect<StatePropsType, DispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
+// @ts-ignore
   fetchUsersCB: fetchUsers,
   followCB: followUserById,
   unfollowCB: unFollowUserById,
   setPageNumberCB: setPageNumberAC,
+
 })(Users);
