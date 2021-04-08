@@ -29,9 +29,11 @@ type DispatchPropsType = {
   paginationHandlerCB: (num: number) => any;
 }
 
-type PropsType = {
+type OwnPropsType = {
+  as?: string;
+}
 
-};
+type PropsType = StatePropsType & DispatchPropsType & OwnPropsType;
 
 class Users extends React.Component<PropsType> {
   componentDidMount(): void {
