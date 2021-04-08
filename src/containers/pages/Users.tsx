@@ -21,14 +21,16 @@ type StatePropsType = {
   paginationCount: number;
 }
 
-type DispatchPropsType
-
-type PropsType = {
+type DispatchPropsType = {
   fetchUsersCB: (num?: number, count?: number) => void;
   followCB: () => any;
   unfollowCB: () => any;
   setPageNumberCB: (num: number) => any;
   paginationHandlerCB: (num: number) => any;
+}
+
+type PropsType = {
+
 };
 
 class Users extends React.Component<PropsType> {
