@@ -1,6 +1,8 @@
 import { getMe, logOut } from "../../helpers/axios/axios";
 import { UserInfoType } from "../reducers/auth";
 import { Dispatch } from "redux";
+import { ThunkAction } from "redux-thunk";
+import { AppStateType } from "../reducers/root";
 
 export const SET_IS_AUTH = "SET_IS_AUTH";
 export const SET_USER = "SET_USER";
@@ -74,11 +76,12 @@ export const logoutFailureAC = (error: string): LogoutFailureActionType => ({
   payload: error,
 });
 
-export const me = (): any => async (
-  dispatch: Dispatch<
-    MeRequestActionType | MeFailureActionType | MeSuccessActionType
-  >
-): Promise<any> => {
+export const me = (): ThunkAction<
+  Promise<void>,
+  AppStateType,
+  unknown,
+  MeRequestActionType | MeFailureActionType | MeSuccessActionType
+> => async (dispatch) => {
   dispatch(meRequestAC());
 
   try {
@@ -92,11 +95,12 @@ export const me = (): any => async (
   }
 };
 
-export const logout = (): any => async (
-  dispatch: Dispatch<
-    LogoutFailureActionType | LogoutRequestActionType | LogoutSuccessActionType
-  >
-): Promise<any> => {
+export const logout = (): ThunkAction<
+  Promise<void>,
+  AppStateType,
+  unknown,
+  LogoutFailureActionType | LogoutRequestActionType | LogoutSuccessActionType
+> => async (dispatch) => {
   dispatch(logoutRequestAC());
 
   try {
