@@ -4,7 +4,19 @@ import {
   PROFILE_REQUEST,
   PROFILE_SUCCESS,
   PROFILE_FAILURE,
+  AddNewMessageActionType,
+  AddPostActionType,
+  ProfileRequestType,
+  ProfileFailureActionType,
+  ProfileSuccessActionType,
 } from "../actions/profile";
+
+type ActionsTypes =
+  | AddNewMessageActionType
+  | AddPostActionType
+  | ProfileRequestType
+  | ProfileFailureActionType
+  | ProfileSuccessActionType;
 
 type PostMessType = {
   id: number;
@@ -37,7 +49,7 @@ const initialState: InitialStateType = {
   error: null,
 };
 
-const profile = (state = initialState, action: any): InitialStateType => {
+const profile = (state = initialState, action: ActionsTypes): InitialStateType => {
   switch (action.type) {
     case ADD_POST: {
       const newPost = {
@@ -72,6 +84,7 @@ const profile = (state = initialState, action: any): InitialStateType => {
     case PROFILE_SUCCESS:
       return {
         ...state,
+      // @ts-ignore
         profile: { ...action.payload },
         isLoading: false,
       };

@@ -85,5 +85,4 @@ export default connect<StatePropsType, DispatchPropsType, OwnPropsType, AppState
   followCB: followUserById,
   unfollowCB: unFollowUserById,
   setPageNumberCB: setPageNumberAC,
-
 })(Users);
