@@ -1,4 +1,13 @@
-import { SET_IS_AUTH } from "../actions/auth";
+import {
+  LogoutFailureActionType,
+  LogoutRequestActionType,
+  LogoutSuccessActionType,
+  MeFailureActionType,
+  MeRequestActionType,
+  MeSuccessActionType,
+  SET_IS_AUTH,
+  SetIsAuthActionType,
+} from "../actions/auth";
 import { ME_REQUEST, ME_SUCCESS, ME_FAILURE } from "../actions/auth";
 import {
   LOGOUT_REQUEST,
@@ -6,6 +15,15 @@ import {
   LOGOUT_FAILURE,
 } from "../actions/auth";
 import statuses from "../../helpers/axios/constants";
+
+type ActionsTypes =
+  | SetIsAuthActionType
+  | MeRequestActionType
+  | MeSuccessActionType
+  | MeFailureActionType
+  | LogoutRequestActionType
+  | LogoutSuccessActionType
+  | LogoutFailureActionType;
 
 export type UserInfoType = {
   userId: number | null;
@@ -29,7 +47,10 @@ const initialState: InitialStateType = {
   status: statuses.INIT,
 };
 
-export default (state = initialState, action: any): InitialStateType => {
+export default (
+  state = initialState,
+  action: ActionsTypes
+): InitialStateType => {
   switch (action.type) {
     case SET_IS_AUTH: {
       return {
