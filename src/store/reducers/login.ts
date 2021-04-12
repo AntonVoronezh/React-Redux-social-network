@@ -5,6 +5,17 @@ import {
   ADD_NEW_USERNAME_TEXT,
   CHANGE_REMEMBER,
   ADD_NEW_CAPTCHA_TEXT,
+  AddNNewUsernameTextActionType,
+  AddNNewPasswordTextActionType,
+  AddNNewCaptchaTextActionType,
+  ChangeRememberActionType,
+  LoginRequestActionType,
+  LoginSuccessActionType,
+  LoginFailureActionType,
+  LoginErrorActionType,
+  CaptchaRequestActionType,
+  CaptchaSuccessActionType,
+  CaptchaFailureActionType,
 } from "../actions/login";
 import {
   LOGIN_REQUEST,
@@ -17,6 +28,19 @@ import {
   CAPTCHA_FAILURE,
   CAPTCHA_SUCCESS,
 } from "../actions/login";
+
+type ActionsTypes =
+  | AddNNewUsernameTextActionType
+  | AddNNewPasswordTextActionType
+  | AddNNewCaptchaTextActionType
+  | ChangeRememberActionType
+  | LoginRequestActionType
+  | LoginSuccessActionType
+  | LoginFailureActionType
+  | LoginErrorActionType
+  | CaptchaRequestActionType
+  | CaptchaSuccessActionType
+  | CaptchaFailureActionType;
 
 type InitialStateType = {
   form: {
@@ -48,7 +72,10 @@ const initialState: InitialStateType = {
   },
 };
 
-export default (state = initialState, action: any): InitialStateType => {
+export default (
+  state = initialState,
+  action: ActionsTypes
+): InitialStateType => {
   switch (action.type) {
     case ADD_NEW_USERNAME_TEXT: {
       return {
