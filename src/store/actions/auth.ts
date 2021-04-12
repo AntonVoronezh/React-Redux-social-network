@@ -1,6 +1,5 @@
 import { getMe, logOut } from "../../helpers/axios/axios";
 import { UserInfoType } from "../reducers/auth";
-import { Dispatch } from "redux";
 import { ThunkAction } from "redux-thunk";
 import { AppStateType } from "../reducers/root";
 

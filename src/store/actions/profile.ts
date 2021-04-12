@@ -1,6 +1,13 @@
 import { getProfile } from "../../helpers/axios/axios";
 import { CAPTCHA_FAILURE } from "./login";
 import { Dispatch } from "redux";
+import { ThunkAction } from "redux-thunk";
+import { AppStateType } from "../reducers/root";
+import {
+  MeFailureActionType,
+  MeRequestActionType,
+  MeSuccessActionType,
+} from "./auth";
 
 export const ADD_POST = "ADD_POST";
 export const ADD_NEW_MESSAGE_TEXT = "ADD_NEW_MESSAGE_TEXT";
@@ -48,11 +55,14 @@ const profileSuccessAC = (data: string): ProfileSuccessActionType => ({
   payload: data,
 });
 
-const fetchProfile = (id: number): any => async (
-  dispatch: Dispatch<
-    ProfileSuccessActionType | ProfileFailureActionType | ProfileRequestType
-  >
-): Promise<any> => {
+const fetchProfile = (
+  id: number
+): ThunkAction<
+  Promise<void>,
+  AppStateType,
+  unknown,
+  ProfileSuccessActionType | ProfileFailureActionType | ProfileRequestType
+> => async (dispatch) => {
   dispatch(profileRequestAC());
 
   try {
