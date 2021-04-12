@@ -12,8 +12,36 @@ import {
   UNFOLLOW_FAILURE,
   UNFOLLOW_REQUEST,
   UNFOLLOW_SUCCESS,
+  FollowType,
+  UnfollowType,
+  GetTotalCountType,
+  SetPageNumberType,
+  UsersFailureType,
+  UsersRequestType,
+  UsersSuccessType,
+  FollowFailureType,
+  FollowRequestType,
+  FollowSuccessType,
+  UnFollowFailureType,
+  UnFollowRequestType,
+  UnFollowSuccessType,
 } from "../actions/users";
 import statuses from "../../helpers/axios/constants";
+
+type ActionsTypes =
+  | FollowType
+  | UnfollowType
+  | GetTotalCountType
+  | SetPageNumberType
+  | UsersFailureType
+  | FollowSuccessType
+  | UsersRequestType
+  | UsersSuccessType
+  | FollowRequestType
+  | FollowFailureType
+  | UnFollowFailureType
+  | UnFollowRequestType
+  | UnFollowSuccessType;
 
 type InitialStateType = {
   users: any[];
@@ -35,7 +63,10 @@ const initialState: InitialStateType = {
   status: statuses.INIT,
 };
 
-const reducer = (state = initialState, action: any): InitialStateType => {
+const reducer = (
+  state = initialState,
+  action: ActionsTypes
+): InitialStateType => {
   switch (action.type) {
     case FOLLOW:
       return {
@@ -74,6 +105,7 @@ const reducer = (state = initialState, action: any): InitialStateType => {
     case USERS_SUCCESS:
       return {
         ...state,
+      // @ts-ignore
         users: [...action.payload],
         isLoading: false,
         error: null,
