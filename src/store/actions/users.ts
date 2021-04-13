@@ -172,7 +172,7 @@ const unFollowUserById = (id: number): any => async (
 
   try {
     const responce = await makeUnfollow(id);
-    if (responce.data.resultCode === 0) {
+    if (responce.resultCode === 0) {
       dispatch(unfollowSuccessAC());
       dispatch(unfollowAC(id));
     }

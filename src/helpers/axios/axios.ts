@@ -30,6 +30,10 @@ type MakeFollowType = {
   resultCode: number;
 }
 
+type MakeUnFollowType = {
+  resultCode: number;
+}
+
 export const getUsers = (
   page: number,
   count: number
@@ -93,8 +97,8 @@ export const makeFollow = (id: number): Promise<MakeFollowType> => {
   return axios.post<MakeFollowType>(`${endPoint}/${id}`).then((res) => res.data);
 };
 
-export const makeUnfollow = (id: number) => {
+export const makeUnfollow = (id: number): Promise<MakeUnFollowType> => {
   const endPoint = "/follow";
 
-  return axios.delete(`${endPoint}/${id}`);
+  return axios.delete<MakeUnFollowType>(`${endPoint}/${id}`).then((res) => res.data);
 };
