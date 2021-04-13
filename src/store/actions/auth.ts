@@ -105,7 +105,7 @@ export const logout = (): ThunkAction<
   try {
     const responce = await logOut();
 
-    if (responce.data.resultCode === 0) {
+    if (responce.resultCode === 0) {
       dispatch(logoutSuccessAC());
     }
   } catch (err) {

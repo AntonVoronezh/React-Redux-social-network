@@ -18,6 +18,9 @@ type GetMeType = {
     login: string;
   };
 };
+type LogOutType = {
+  resultCode: number;
+};
 
 export const getUsers = (
   page: number,
@@ -64,10 +67,10 @@ export const getMe = (): Promise<GetMeType> => {
   return axios.get<GetMeType>(`${endPoint}`).then((res) => res.data);
 };
 
-export const logOut = () => {
+export const logOut = ():Promise<LogOutType> => {
   const endPoint = "/auth/logout";
 
-  return axios.post(`${endPoint}`);
+  return axios.post<LogOutType>(`${endPoint}`).then((res) => res.data);
 };
 
 export const getCaptcha = () => {
