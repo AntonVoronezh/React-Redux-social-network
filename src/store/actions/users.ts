@@ -134,9 +134,9 @@ const fetchUsers = (page: number, count: number): any => async (
   dispatch(usersRequestAC());
 
   try {
-    const responce = await getUsers(page, count);
-    dispatch(usersSuccessAC(responce.data.items));
-    dispatch(getTotalCountAC(responce.data.totalCount));
+    const data = await getUsers(page, count);
+    dispatch(usersSuccessAC(data.items));
+    dispatch(getTotalCountAC(data.totalCount));
   } catch (err) {
     dispatch(usersFailureAC(err));
   }
