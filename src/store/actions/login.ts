@@ -146,19 +146,19 @@ export const login = (): any => async (
   const state = getState().login.form;
 
   try {
-    const responce = await tryLogin(
+    const data = await tryLogin(
       state.email,
       state.password,
       state.rememberMe,
       state.captcha
     );
 
-    if (responce.data.resultCode === 0) {
+    if (data.resultCode === 0) {
       dispatch(loginSuccessAC());
       dispatch(setIsAuthAC(true));
-    } else if (responce.data.resultCode === 1) {
-      dispatch(loginErrorAC(responce.data.messages[0]));
-    } else if (responce.data.resultCode === 10) {
+    } else if (data.resultCode === 1) {
+      dispatch(loginErrorAC(data.messages[0]));
+    } else if (data.resultCode === 10) {
       dispatch(captchaRequestAC());
 
       try {

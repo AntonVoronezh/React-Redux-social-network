@@ -6,6 +6,10 @@ type GetUsersType = {
 };
 
 type GetProfileType = {};
+type TryLoginType = {
+  resultCode: number;
+  messages: string[];
+};
 
 export const getUsers = (
   page: number,
@@ -40,8 +44,10 @@ export const tryLogin = (
   password: string,
   rememberMe: boolean = false,
   captcha: string | null = null
-) => {
-  return axios.post("/auth/login", { email, password, rememberMe, captcha });
+): Promise<TryLoginType> => {
+  return axios
+    .post<TryLoginType>("/auth/login", { email, password, rememberMe, captcha })
+    .then((res) => res.data);
 };
 
 export const getMe = () => {
