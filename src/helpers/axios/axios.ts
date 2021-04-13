@@ -22,6 +22,10 @@ type LogOutType = {
   resultCode: number;
 };
 
+type GetCaptchaType = {
+  url: string;
+}
+
 export const getUsers = (
   page: number,
   count: number
@@ -73,10 +77,10 @@ export const logOut = ():Promise<LogOutType> => {
   return axios.post<LogOutType>(`${endPoint}`).then((res) => res.data);
 };
 
-export const getCaptcha = () => {
+export const getCaptcha = (): Promise<GetCaptchaType> => {
   const endPoint = "/security/get-captcha-url";
 
-  return axios.get(`${endPoint}`);
+  return axios.get<GetCaptchaType>(`${endPoint}`).then((res) => res.data);
 };
 
 export const makeFollow = (id: number) => {

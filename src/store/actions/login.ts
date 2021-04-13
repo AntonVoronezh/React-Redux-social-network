@@ -163,7 +163,7 @@ export const login = (): any => async (
 
       try {
         const captchaUrl = await getCaptcha();
-        dispatch(captchaSuccessAC(captchaUrl.data.url));
+        dispatch(captchaSuccessAC(captchaUrl.url));
       } catch (err) {
         dispatch(captchaFailureAC(err));
       }
