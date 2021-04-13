@@ -151,7 +151,7 @@ const followUserById = (id: number): any => async (
 
   try {
     const responce = await makeFollow(id);
-    if (responce.data.resultCode === 0) {
+    if (responce.resultCode === 0) {
       dispatch(followSuccessAC());
       dispatch(followAC(id));
     }

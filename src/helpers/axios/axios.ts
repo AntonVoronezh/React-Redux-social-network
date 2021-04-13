@@ -26,6 +26,10 @@ type GetCaptchaType = {
   url: string;
 }
 
+type MakeFollowType = {
+  resultCode: number;
+}
+
 export const getUsers = (
   page: number,
   count: number
@@ -83,10 +87,10 @@ export const getCaptcha = (): Promise<GetCaptchaType> => {
   return axios.get<GetCaptchaType>(`${endPoint}`).then((res) => res.data);
 };
 
-export const makeFollow = (id: number) => {
+export const makeFollow = (id: number): Promise<MakeFollowType> => {
   const endPoint = "/follow";
 
-  return axios.post(`${endPoint}/${id}`);
+  return axios.post<MakeFollowType>(`${endPoint}/${id}`).then((res) => res.data);
 };
 
 export const makeUnfollow = (id: number) => {
