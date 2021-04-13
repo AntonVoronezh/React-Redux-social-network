@@ -11,6 +11,14 @@ type TryLoginType = {
   messages: string[];
 };
 
+type GetMeType = {
+  resultCode: number;
+  data: {
+    id: number;
+    login: string;
+  };
+};
+
 export const getUsers = (
   page: number,
   count: number
@@ -50,10 +58,10 @@ export const tryLogin = (
     .then((res) => res.data);
 };
 
-export const getMe = () => {
+export const getMe = (): Promise<GetMeType> => {
   const endPoint = "/auth/me";
 
-  return axios.get(`${endPoint}`);
+  return axios.get<GetMeType>(`${endPoint}`).then((res) => res.data);
 };
 
 export const logOut = () => {
