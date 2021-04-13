@@ -50,7 +50,7 @@ const profileFailureAC = (error: string): ProfileFailureActionType => ({
   payload: error,
 });
 const profileRequestAC = (): ProfileRequestType => ({ type: PROFILE_REQUEST });
-const profileSuccessAC = (data: string): ProfileSuccessActionType => ({
+const profileSuccessAC = (data: any): ProfileSuccessActionType => ({
   type: PROFILE_SUCCESS,
   payload: data,
 });
@@ -66,8 +66,8 @@ const fetchProfile = (
   dispatch(profileRequestAC());
 
   try {
-    const responce = await getProfile(id);
-    dispatch(profileSuccessAC(responce.data));
+    const data = await getProfile(id);
+    dispatch(profileSuccessAC(data));
   } catch (err) {
     dispatch(profileFailureAC(err));
   }

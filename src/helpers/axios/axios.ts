@@ -5,6 +5,8 @@ type GetUsersType = {
   totalCount: number;
 };
 
+type GetProfileType = {};
+
 export const getUsers = (
   page: number,
   count: number
@@ -27,10 +29,10 @@ export const getUsers = (
     .then((res) => res.data);
 };
 
-export const getProfile = (id: number) => {
+export const getProfile = (id: number): Promise<GetProfileType> => {
   const endPoint = "/profile";
 
-  return axios.get(`${endPoint}/${id}`);
+  return axios.get<GetProfileType>(`${endPoint}/${id}`).then((res) => res.data);
 };
 
 export const tryLogin = (
