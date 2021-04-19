@@ -8,7 +8,7 @@ import {
   unFollowUserById,
   setPageNumberAC,
 } from "../../store/actions/users";
-import {AppStateType} from "../../store/reducers/root";
+import { AppStateType } from "../../store/reducers/root";
 
 type StatePropsType = {
   count: number;
@@ -19,7 +19,7 @@ type StatePropsType = {
   users: any[];
   error: { message: string };
   paginationCount: number;
-}
+};
 
 type DispatchPropsType = {
   fetchUsersCB: (num: number, count: number) => void;
@@ -27,17 +27,17 @@ type DispatchPropsType = {
   unfollowCB: () => void;
   setPageNumberCB: (num: number) => void;
   // paginationHandlerCB: (num: number) => any;
-}
+};
 
 type OwnPropsType = {
   as?: string;
-}
+};
 
 type PropsType = StatePropsType & DispatchPropsType & OwnPropsType;
 
 class Users extends React.Component<PropsType> {
   componentDidMount(): void {
-    this.props.fetchUsersCB(1,1);
+    this.props.fetchUsersCB(1, 1);
   }
 
   paginationHandler = (number = this.props.page): void => {
@@ -79,8 +79,13 @@ const mapStateToProps = ({ users }: AppStateType): any => {
 // 	mapDispatchToProps
 // )(Users);
 
-export default connect<StatePropsType, DispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
-// @ts-ignore
+export default connect<
+  StatePropsType,
+  DispatchPropsType,
+  OwnPropsType,
+  AppStateType
+>(mapStateToProps, {
+  // @ts-ignore
   fetchUsersCB: fetchUsers,
   followCB: followUserById,
   unfollowCB: unFollowUserById,
