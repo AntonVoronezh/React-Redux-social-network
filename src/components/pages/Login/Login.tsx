@@ -10,7 +10,7 @@ type PropsType = {
   addNewPasswordTextCB: (a: any) => void;
   password: string;
   changeRememberCB: () => void;
-  rememberMe: () => void;
+  rememberMe: boolean;
   loginCB: () => void;
   errorMessage: string;
   status: string;
@@ -37,13 +37,13 @@ const Login: React.FC<PropsType> = ({
   captcha,
   addNewCaptchaTextCB,
 }) => {
-  const usernameInputHandler = ({ nativeEvent: { data } }: any):void => {
+  const usernameInputHandler = ({ nativeEvent: { data } }: any): void => {
     addNewUsernameTextCB(data);
   };
-  const passwordInputHandler = ({ nativeEvent: { data } }: any):void => {
+  const passwordInputHandler = ({ nativeEvent: { data } }: any): void => {
     addNewPasswordTextCB(data);
   };
-  const captchaInputHandler = ({ nativeEvent: { data } }: any):void => {
+  const captchaInputHandler = ({ nativeEvent: { data } }: any): void => {
     addNewCaptchaTextCB(data);
   };
   const checkboxInputHandler = () => {
@@ -91,7 +91,7 @@ const Login: React.FC<PropsType> = ({
           label="Запомнить меня"
           onChange={checkboxInputHandler}
           style={{ marginBottom: "10px" }}
-          control={toString(rememberMe)}
+          control={rememberMe.toString()}
         />
         <br />
         {captchaRequired && (
