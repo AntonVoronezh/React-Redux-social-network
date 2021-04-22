@@ -4,7 +4,7 @@ import { List } from "semantic-ui-react";
 import Message from "./Message/Message";
 
 type PropsType = {
-  messages: { [key: string]: string[] };
+  messages: { [key: string]: Array<{ id: number; text: string }> };
   location: { pathname: string };
 };
 
@@ -17,7 +17,7 @@ const Messages: React.FC<PropsType> = ({
   let list;
 
   !isNaN(id)
-    ? (list = messages[id].map((m: { id: number, text: string }) => {
+    ? (list = messages[id].map((m: { id: number; text: string }) => {
         return <Message key={m.id} {...m} />;
       }))
     : (list = "Выберите с кем переписываться");
