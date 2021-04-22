@@ -55,7 +55,7 @@ const Profile: React.FC<PropsType> = ({
           newMessageText={newMessageText}
           addNewMessageCB={addNewMessageCB}
         />
-        <Button content="Добавить пост" callback={addPostCB} />
+        <Button content="Добавить пост" callback={addPostCB} id={1}/>
       </Segment>
       <Segment>
         <Posts posts={posts} />
