@@ -20,7 +20,10 @@ const App = () => {
           <Menu>
             <Menu.Item>Social Network</Menu.Item>
             <Menu.Item position="right">
-              <Header />
+              {
+                // @ts-ignore
+                <Header />
+              }
             </Menu.Item>
           </Menu>
         </header>

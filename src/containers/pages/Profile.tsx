@@ -12,7 +12,7 @@ import { AppStateType } from "../../store/reducers/root";
 type StatePropsType = {
   isLoading: boolean;
   profile: any;
-  error: string;
+  error: { message: string; };
   posts: any;
   newMessageText: string;
   description: string;

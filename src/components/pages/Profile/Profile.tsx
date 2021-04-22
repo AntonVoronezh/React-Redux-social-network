@@ -12,7 +12,7 @@ type PropsType = {
   description: string;
   image: any;
   addPostCB: () => void;
-  addNewMessageCB: () => void;
+  addNewMessageCB: (a:string) => void;
   isLoading: boolean;
   profile: any;
 };

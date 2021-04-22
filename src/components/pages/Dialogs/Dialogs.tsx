@@ -8,8 +8,8 @@ import UsersMessagesForm from "../../elements/forms/UsersMessagesForm/UsersMessa
 
 type PropsType = {
   newDialogText: string;
-  messages: string[];
-  dialogs: string[];
+  messages: { [key: string]: Array<{ id: number; text: string }> };
+  dialogs: { id: number; name: string; }[];
   addDialogCB: () => void;
   addNewDialogTextCB: () => void;
   location: any;
